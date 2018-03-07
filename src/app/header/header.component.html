@@ -1,0 +1,41 @@
+<div class='header navbar'>
+    <div class='container-fluid' style="font-size: 0; white-space: nowrap; line-height: normal">
+        <div style="display: table-cell">
+            <div class='home-btn'>
+                <span class='ej-icon-Bento' style='font-size: 18px;'></span>
+            </div>
+            <div style='margin-left: 15px;display: inline-block'>
+                <span class='home-btn-text'>Webmail</span>
+            </div>
+        </div>
+        <div style="display: table-cell; width: 100%; text-align: center">
+        </div>
+        <div id="notification-div" class="header-right-pane">  
+            <div style="pointer-events: none;">
+                <button ejs-button id='btnNotification' iconCss='ej-icon-Notify' cssClass='btn-shadow-hide'
+                    style="min-width: 52px"></button>
+            </div>
+        </div>
+        <div id="settings-div" class="header-right-pane">  
+            <div style="pointer-events: none;">
+                <button ejs-button id='btnSettings' iconCss='ej-icon-Settings' cssClass='btn-shadow-hide'
+                    style="min-width: 52px"></button>
+            </div>
+        </div>
+        <div id="about-div" class="header-right-pane">  
+            <div style="pointer-events: none;">
+                <button ejs-button id='btnAbout' iconCss='ej-icon-Help-white' cssClass='btn-shadow-hide'
+                    style="min-width: 52px"></button>
+            </div>
+        </div>
+        <div id="profile-div" class="header-right-pane"> 
+            <div style="right: 0px;position: absolute;top: 3px;pointer-events: none;margin-right: 5px;">
+                <div class='logo logo-style1 profile-pic'></div>
+            </div>  
+            <div style="margin-right: 44px; pointer-events: none;">
+                <button ejs-button id='btnLoginName' [content]='username' cssClass='btn-shadow-hide'
+                    class="btn-profile" style="min-width: 88px;font-weight: normal"></button>
+            </div> 
+        </div>
+    </div>
+</div>

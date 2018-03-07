@@ -1,0 +1,23 @@
+<div class="search-div">
+    <div class="search-device-section">
+        <div style="width: 84%; float: left; height: 40px;">
+            <ejs-autocomplete id='txtSearch' #txtSearch [dataSource]='contactsList' [showClearButton]='acClearButton'
+                placeholder='Search Mail and People' [fields]='searchFields' cssClass='search-text-box'
+                (change)='autoSearchSelect($event)' (focus)="autoSearchFocus($event)" (blur)="autoSearchBlur($event)" style="height: 40px; display: block;" >
+            </ejs-autocomplete>
+        </div>
+        <div style="float: right; margin: 4px 0px;">
+            <button ejs-button id='btnSearch' iconCss='ej-icon-Search' cssClass='btn-shadow-hide'></button>
+        </div>
+    </div>
+    <div class="search-mobile-section" >
+        <div class='logo logo-style3 profile-pic' style='float:left'></div>
+        <div class='messageHeader' style='float:left; height: 50px;'>
+            <div style="font-size: 17px;color:#333">{{userName}}</div>
+            <div style="font-size: 12px; color: #666">{{userMail}}</div>
+        </div>
+        <div style="right:20px;position: absolute;">
+            <button ejs-button id='btnCloseButton1' iconCss='ej-icon-Close' cssClass='btn-shadow-hide' (click)="hideSideBar()"></button>
+        </div>
+    </div>
+</div>

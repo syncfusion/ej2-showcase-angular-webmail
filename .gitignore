@@ -1,0 +1,15 @@
+dist/
+*d.ts
+*.map
+.vscode/
+src/**/*.js
+*.ngstyle.ts
+src/**/*.map
+node_modules/
+npm-debug.log
+*ngfactory.ts
+*metadata.json
+*ngsummary.json
+src/assets/index.css
+src/assets/*.css
+*.css

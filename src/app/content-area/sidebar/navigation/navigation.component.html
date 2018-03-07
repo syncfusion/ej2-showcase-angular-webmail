@@ -1,0 +1,17 @@
+<div class="folder-pane customScrollBar">
+    <ejs-treeview id="tree" #tree [fields]="treeviewFields" (nodeSelected)='nodeSelected($event)'>
+        <ng-template #nodeTemplate let-data>
+            <div class="treeviewdiv">
+                <div style="float:left">
+                <span class="treeName">{{data.Name}}</span>
+                </div>
+                <div class="count" style="margin-left: 5px; float:right">
+                    <span class="treeCount {{data.Name}}" >{{data.Count}}</span>
+                </div>
+                <button title="{{data.FavoriteMessage}}" class="treeview-btn-temp">
+                    <span class="e-btn-icon ej-icon-{{data.Favorite}} {{data.Name}}"></span>
+                </button>
+            </div>
+        </ng-template>
+    </ejs-treeview>
+</div>

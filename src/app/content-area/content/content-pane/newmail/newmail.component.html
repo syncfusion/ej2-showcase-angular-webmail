@@ -1,0 +1,104 @@
+<div class="toolbar-parent-newmail">
+    <div style='width:100%;height:40px;'>
+        <ejs-toolbar id='toolbar_newmail' #toolbarHeader height='100%' overflowMode='Popup' (clicked)="toolbarNewMailClick($event)">  
+            <e-items>
+                <e-item  prefixIcon ='ej-icon-Send tb-icons' text='Send' tooltipText='Send' ></e-item>
+                <e-item  prefixIcon ='ej-icon-Attach tb-icons' text='Attach' tooltipText='Attach' ></e-item>
+                <e-item  text ='Discard' ></e-item>
+                <e-item  cssClass='tb-item-more tb-item-more-mail' tooltipText='More actions'>
+                    <ng-template #template>
+                        <ejs-dropdownlist id='moreList2' #moreItemList2 [dataSource]='moreMailList' 
+                            value="Show From" [fields]='dropdownField' popupHeight="150px" popupWidth="150px">
+                            <ng-template #valueTemplate let-data>
+                                <div class="tb-dropdowns" style ="font-size: 16px;margin-top: -2px;"><span class="e-btn-icon e-icons ej-icon-More"></span></div>
+                            </ng-template>
+                        </ejs-dropdownlist>
+                    </ng-template>
+                </e-item>
+                <e-item  prefixIcon='ej-icon-Copy tb-icons' tooltipText='Edit in a separate window' 
+                    cssClass='tb-item-window-mail' align='right'>
+                </e-item>
+                <e-item  prefixIcon='ej-icon-Close tb-icons' tooltipText='Close' align='right' 
+                    cssClass='tb-item-back-mail' >
+                </e-item>
+            </e-items>                  
+        </ejs-toolbar>
+    </div>
+</div>
+<div class="mail-content-div customScrollBar">
+    <div class="mail-id" style="color: white">
+        <button ejs-button id='btnTo' style='width:50px; float:left'>To</button>
+        <ejs-multiselect id='autoTo' #autoTo [dataSource]='contactsList' [fields]='multiSelectFields' 
+            mode='Box' placeholder= '' [width]='multiSelectWidth' cssClass ='ac-new-mail' delimiterChar=';'
+            popupWidth='300px' allowFiltering='true' (filtering)='onFiltering($event)'>
+            <ng-template #itemTemplate let-data>
+                <div class="multiselect-template parent-div">
+                    <img class="contacts-item-image-style" src={{data.Image}} alt="employee"/>
+                    <div class="contacts-item-text-style"> 
+                        <div>{{data.ContactName}}</div> 
+                    </div>
+                    <div class="contacts-item-subtext-style">{{data.MailId}}</div>
+                </div>
+            </ng-template>
+            <ng-template #valueTemplate let-data>
+                <div>
+                    <img class="contacts-value-img-style" src="{{data.Image}}" alt="employee"/>
+                    <div class="contacts-value-text-style">{{data.MailId}}</div>
+                </div>
+            </ng-template>
+        </ejs-multiselect>
+    </div>
+    <div class="mail-id" style="color: white">
+        <button ejs-button id='btnCc' style='width:50px; float:left'>Cc</button>
+        <ejs-multiselect id='autoCc' #autoCc [dataSource]='contactsList' [fields]='multiSelectFields' 
+            mode='Box' placeholder= '' [width]='multiSelectWidth' cssClass ='ac-new-mail' delimiterChar=';' 
+            popupWidth='300px' allowFiltering='true' (filtering)='onFiltering($event)'>
+            <ng-template #itemTemplate let-data>
+                <div class="multiselect-template parent-div">
+                    <img class="contacts-item-image-style" src="{{data.Image}}" alt="employee"/>
+                    <div class="contacts-item-text-style"> 
+                        <div>{{data.ContactName}}</div> 
+                    </div>
+                    <div class="contacts-item-subtext-style">{{data.MailId}}</div>
+                </div>
+            </ng-template>
+            <ng-template #valueTemplate let-data>
+                <div>
+                    <img class="contacts-value-img-style" src="{{data.Image}}" alt="employee"/>
+                    <div class="contacts-value-text-style">{{data.MailId}}</div>
+                </div>
+            </ng-template>
+        </ejs-multiselect>
+    </div>
+    <div class="mail-subject e-input-group">
+        <input type='text' id='txtSubject' style="width: 100%" placeholder="Enter Subject Here" class="e-input" (focus) = "onFocus()" (blur) = "onBlur()" />
+    </div>
+    <div>
+        <div id='mailContentMessage' class="customScrollBar" contenteditable="true"></div>
+    </div>
+    <div class='mail-text-edit-tb-parent'>
+        <ejs-toolbar id='new_email_toolbar' #toolbarMailOption height='100%' overflowMode='Popup'>  
+            <e-items>
+                <e-item prefixIcon= 'ej-icon-Font tb-icons' tooltipText= 'Font' ></e-item>
+                <e-item prefixIcon= 'ej-icon-Font-Size path2 tb-icons' tooltipText= 'Font Size' ></e-item>
+                <e-item prefixIcon= 'ej-icon-Bold tb-icons' tooltipText= 'Bold' ></e-item> 
+                <e-item prefixIcon= 'ej-icon-Italic tb-icons' tooltipText= 'Italic' ></e-item> 
+                <e-item prefixIcon= 'ej-icon-Underlined tb-icons' tooltipText= 'Underline' ></e-item> 
+                <e-item prefixIcon= 'ej-icon-Highlight tb-icons' tooltipText= 'Highlight' ></e-item> 
+                <e-item prefixIcon= 'ej-icon-Font-Color-Icon tb-icons' tooltipText= 'Font color' ></e-item> 
+                <e-item prefixIcon= 'ej-icon-Bullets tb-icons' tooltipText= 'Bullets' ></e-item> 
+                <e-item prefixIcon= 'ej-icon-Numbering tb-icons' tooltipText= 'Numbering' ></e-item> 
+                <e-item prefixIcon= 'ej-icon-Decr-Indent tb-icons' tooltipText= 'Decrease Indent' ></e-item> 
+                <e-item prefixIcon= 'ej-icon-Incr-Indent tb-icons' tooltipText= 'Increase Indent' ></e-item> 
+                <e-item prefixIcon= 'ej-icon-Left-aligned tb-icons' tooltipText= 'Decrease Indent' ></e-item> 
+                <e-item prefixIcon= 'ej-icon-Centre-aligned tb-icons' tooltipText= 'Increase Indent' ></e-item> 
+                <e-item prefixIcon= 'ej-icon-Right-aligned tb-icons' tooltipText= 'Decrease Indent' ></e-item> 
+                <e-item prefixIcon= 'ej-icon-Hyperlink tb-icons' tooltipText= 'Hyperlink' ></e-item>
+            </e-items>
+        </ejs-toolbar>
+    </div>
+    <div>
+        <button ejs-button id='btnSend' style='margin: 8px 0px; background-color: #0078D7; color: #fff' (click)="sendClick()">Send</button>
+        <button ejs-button id='btnDiscard' style='margin: 8px 0px;'>Discard</button>
+    </div>
+</div>

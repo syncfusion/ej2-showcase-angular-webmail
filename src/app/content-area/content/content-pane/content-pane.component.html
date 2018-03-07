@@ -1,0 +1,15 @@
+<div id='reading-pane-div' class='reading-pane customScrollBar'>
+    <div id='emptyMessageDiv' style='width: 100%;text-align: center; vertical-align: middle; padding: 15px;height:100%; background-color:#fff;'>
+        <div style="top:35%; left: 40%; position: absolute; display: block">
+            <div class="emptyImageDiv"></div> <br/>
+            <span class="emptyDivText">Choose a message to read it.</span>
+        </div>
+    </div>
+    <ejs-accordion id='accordian' #accordian style='display: none;'></ejs-accordion>
+    
+    <div id='mailarea' style='display: none; height:100%; background-color:#fff;'>
+    </div>
+    <div id="newmailContent">
+        <newmail-section #newmailPane></newmail-section>
+    </div>
+</div>

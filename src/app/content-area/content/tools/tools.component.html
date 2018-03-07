@@ -1,0 +1,122 @@
+<div class="e-roottools" style='background-color:#fff; width:100%;color:white'>
+    <ejs-toolbar id='toolbar_align' #toolbarDevice width="100%" height="100%" overflowMode='Popup'
+        (clicked)="toolbarClick($event)">
+        <e-items>
+            <e-item prefixIcon="ej-icon-New tb-icons" text="New" tooltipText="Write a new message"
+                cssClass="tb-item-new-mail">
+            </e-item>
+            <e-item prefixIcon='ej-icon-Mark-as-read tb-icons' text='Mark all as read' 
+                tooltipText='Mark all as read' cssClass='tb-item-mark-read'>
+            </e-item>
+            <e-item prefixIcon='ej-icon-Reply-All tb-icons' cssClass='tb-item-Selected tb-item-replyAll'
+                tooltipText='Reply All'>
+                <ng-template #template>
+                    <ejs-dropdownlist id='replyAllList' #replyAllList [dataSource]='replyList' (change)='replyAllSelect($event)' value="Reply All"
+                        [fields]='dropdownField' popupHeight="150px" popupWidth="150px" width="115px">
+                        <ng-template #valueTemplate let-data="">
+                            <div>
+                                <div style="float:left;margin-top: 1px;">
+                                    <span style="font-weight: bold" class="e-btn-icon ej-icon-Reply-All tb-icons e-icons tb-icon-rply-all">
+
+                                    </span>
+                                </div>
+                                <div class="tb-dropdowns" style="float:left"> Reply All </div>
+                            </div>
+                        </ng-template>
+                    </ejs-dropdownlist>
+                </ng-template>
+            </e-item>
+            <e-item prefixIcon='ej-icon-Delete tb-icons' text='Delete' cssClass='tb-item-Selected' 
+                tooltipText= 'Delete'>
+            </e-item>
+            <e-item text='Junk' cssClass='tb-item-Selected' tooltipText='Mark the sender as unsafe and delete the message'>
+            </e-item>
+            <e-item cssClass='tb-item-Selected' tooltipText='Move To' >
+                <ng-template #template>
+                    <ejs-dropdownlist id='moveToList' #moveList [dataSource]='moveToList' (change)='moveToSelect($event)' 
+                        value="Inbox" [fields]='dropdownField' popupHeight="310px" popupWidth="150px" 
+                        width="80px" allowFiltering=true  >
+                        <ng-template #valueTemplate let-data="">
+                            <div class="tb-dropdowns"> Move to </div>
+                        </ng-template>
+                    </ejs-dropdownlist>
+                </ng-template>
+            </e-item>
+            <e-item cssClass='tb-item-Selected' tooltipText='Add Categories to message' >
+                <ng-template #template>
+                    <ejs-dropdownlist id='categoryList' #categoriesList [dataSource]='categoryList'
+                        value="Blue category" [fields]='dropdownField' popupHeight="250px" popupWidth="230px" 
+                        width="100px">
+                        <ng-template #itemTemplate let-data="">
+                            <div class="e-list" style="padding:0px 15px">
+                                <div style="width: 20px;float:left;top: 8px;position: absolute;">
+                                    <div class="{{data.categoryStyle}}" style="width: 10px; height:15px;"></div>
+                                </div>
+                                <div style="width: 170px;float:left;margin-left: 15px;font-size:12px;"><span>{{data.text}}</span></div>
+                            </div>
+                        </ng-template>
+                        <ng-template #valueTemplate let-data>
+                            <div class="tb-dropdowns"> Categories </div>
+                        </ng-template>
+                    </ejs-dropdownlist>
+                </ng-template>
+            </e-item>
+            <e-item cssClass='tb-item-more tb-item-Selected' tooltipText='More actions' >
+                <ng-template #template>
+                    <ejs-dropdownlist id='moreList' #moreItemList [dataSource]='moreList' (change)='moreItemSelect($event)' 
+                        value="Mark as read" [fields]='dropdownField' popupHeight="150px" popupWidth="150px">
+                        <ng-template #valueTemplate let-data>
+                            <div class="tb-dropdowns" style ="font-size: 16px;margin-top: -2px;"><span class="e-btn-icon e-icons ej-icon-More"></span></div>
+                        </ng-template>
+                    </ejs-dropdownlist>
+                </ng-template>
+            </e-item>
+            <e-item prefixIcon='ej-icon-Copy tb-icons' align='right' cssClass='tb-item-Selected' 
+                tooltipText= 'Open in a separate window'>
+            </e-item>
+        </e-items>
+    </ejs-toolbar>
+    <ejs-toolbar id='toolbar_mobile' #toolbarMobile width='100%' height='100%' overflowMode='Popup' (clicked)="toolbarClick($event)">  
+        <e-items>
+            <e-item prefixIcon ='ej-icon-Menu tb-icons' cssClass='tb-item-menu tb-item-front' ></e-item>
+            <e-item prefixIcon ='ej-icon-Back' cssClass='tb-item-back-icon tb-item-back' ></e-item>
+            <e-item text ='Inbox' cssClass='tb-item-inbox tb-item-front' ></e-item>
+            <e-item text ='Compose' cssClass='tb-item-inbox tb-item-back tb-item-newmail-option' ></e-item>
+            <e-item cssClass= 'tb-item-search-option' align='center' >
+                <ng-template #template>
+                    <div class="search-div1" style= "width:90%" >
+                        <div>
+                            <ejs-autocomplete id='txtSearch1' cssClass='search-text-box' #txtSearch1 [dataSource]='contactsList' 
+                                placeholder='Search Mail and People' [fields]='searchFields' [showClearButton]='acClearButton'
+                                (change)='autoSearchSelect($event)' (focus)="autoSearchFocus($event)" (blur)="autoSearchBlur($event)" style="height: 40px;display: block;"></ejs-autocomplete>
+                        </div>
+                    </div>
+                </ng-template>
+            </e-item>
+            <e-item  prefixIcon='ej-icon-Close' tooltipText='Clear' align='right' cssClass='tb-item-search-option'></e-item>
+            <e-item  prefixIcon='ej-icon-Search' tooltipText='Search Mail' align='right' cssClass='tb-item-front' ></e-item>
+            <e-item  prefixIcon='ej-icon-Create-New' tooltipText='Write a new message' align='right' cssClass='tb-item-front'>
+            </e-item>
+            <e-item  prefixIcon='ej-icon-Send' tooltipText='Send' align='right' cssClass='tb-item-back tb-item-newmail-option'>
+            </e-item>
+            <e-item  prefixIcon='ej-icon-Attach' tooltipText='Attach' align='right' cssClass='tb-item-back tb-item-newmail-option'>
+            </e-item>
+            <e-item  prefixIcon ='ej-icon-Delete' tooltipText='Delete' align='right' 
+                cssClass='tb-item-back' >
+            </e-item>
+            <e-item  prefixIcon ='ej-icon-Reply-All' tooltipText='Reply All' align='right' 
+                cssClass='tb-item-back' >
+            </e-item>
+            <e-item  cssClass='tb-item-more tb-item-back' tooltipText='More actions' align='right'>
+                <ng-template #template>
+                    <ejs-dropdownlist id='moreList1' #moreItemList1 [dataSource]='moreList' (change)='moreItemSelect($event)' 
+                        value="Mark as read" [fields]='dropdownField' popupHeight="150px" popupWidth="150px">
+                        <ng-template #valueTemplate let-data>
+                            <div class="tb-dropdowns" style ="font-size: 16px;margin-top: -2px;"><span class="e-btn-icon e-icons ej-icon-More"></span></div>
+                        </ng-template>
+                    </ejs-dropdownlist>
+                </ng-template>
+            </e-item>
+        </e-items>
+    </ejs-toolbar>
+</div>

@@ -1,0 +1,14 @@
+<div class='message-pane customScrollBar' style='overflow: auto'>
+    <div class="filter-section">
+        <div style='float: left; margin-top: 5px;'>
+            <span id="spanFilterText" style='font-size: 22px;color:#333333'>Inbox</span>
+        </div>
+        <div style='right:25px; position: absolute; top:10px'>
+            <span style='font-size: 16px; color: #0078D7'>Filter</span>
+            <button ejs-button id='btnFilter' style='color: #0078D7' iconCss='ej-icon-Dropdown-arrow' cssClass='btn-shadow-hide'></button>
+        </div>
+    </div>
+    <ejs-listview id='listview-grp' #listview1 [dataSource]='messageDataSource' [template]='listTemplate'
+        tabindex='1' [fields]='listviewFields' sortOrder='None' (select)='listViewSelect($event)' >
+    </ejs-listview>
+</div>

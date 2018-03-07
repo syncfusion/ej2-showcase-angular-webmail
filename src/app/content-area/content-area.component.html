@@ -1,0 +1,111 @@
+<div id="content-area" style="height: 100%">
+    <div class='row content'>
+        <sidebar-section #sidebarSection></sidebar-section>
+        <popup-section #popupSection></popup-section>
+        <content-section #contentSection></content-section>
+        <div id='accodianContent'>
+            <div style='height: 100px'>
+                <div class='logo logo-style2' style='float:left'></div>
+                <div class='messageHeader' style='float:left'>
+                    <div id='sub' style="font-size: 17px">
+                    </div>
+                    <div id='date' style="font-size: 11px; color: #666;" ></div>
+                    <div id='to' style="font-size: 12px;"></div>
+                </div>
+                <div style="right:0;position: absolute;">
+
+                </div>
+            </div>
+            <div id='accContent'>
+            </div>
+        </div>
+        <div id='reading-pane-popup'>
+            <readingpane-section #readingPaneElement></readingpane-section>
+        </div>
+    </div>
+    <div class="overlay-element" (click)="hideSideBar()">
+    </div>
+</div>
+ 
+ 
+<ejs-contextmenu id='treeContextMenu' #treeContextMenu [items]='treeMenuItems' target='#tree' (beforeOpen)='treeMenuBeforeOpen($event)' 
+    (select)='treeMenuSelect($event)' >
+</ejs-contextmenu>
+
+<ejs-contextmenu id='filterContextMenu' #filterContextMenu [items]='filterMenuItems' (select)='filterMenuSelect($event)' >
+</ejs-contextmenu>
+
+<ejs-dialog id="favoriteDialog" #favoriteDialog width='335px' header='Remove from Favorites' content='<div class="dlg-content-style"><span>Do you want to remove from favorites?</span></div>'
+    [target]='dlgTarget' [isModal]='modalDialog' [animationSettings]='dlgAnimationSettings' closeOnEscape='true'
+    [buttons]='favoritesDlgButtons' [visible]='dialogVisibility'>
+</ejs-dialog>
+
+<ejs-dialog id="deleteDialog" #deleteDialog width='335px' header='Delete Folder Items' content='<div class="dlg-content-style"><span>Are you sure you want to move all its content to Deleted items?</span></div>'
+    [target]='dlgTarget' [isModal]='modalDialog' [animationSettings]='dlgAnimationSettings' closeOnEscape='true'
+    [buttons]='deleteDlgButtons' [visible]='dialogVisibility'>
+</ejs-dialog>
+
+<ejs-dialog id="sentMailDialog" #sentMailDialog width="335px" header="Mail Sent" content='<div class="dlg-content-style"><span>Your mail has been sent successfully.</span></div>'
+    [target] ='dlgTarget' [isModal]='modalDialog' [animationSettings]='dlgAnimationSettings' closeOnEscape='true'
+    [buttons] ='sentDlgButtons'  [visible]='dialogVisibility'>
+</ejs-dialog>
+<ejs-dialog id="discardDialog" #discardDialog width="335px" header="Discard Message" [content]='discardDlgContent' closeOnEscape='true'
+    [target]='dlgTarget' [isModal]='modalDialog' [animationSettings]='dlgAnimationSettings' [visible]='dialogVisibility' >
+</ejs-dialog>
+<ejs-dialog id="newMailSeparateDialog" #newMailSeparateDialog width="80%" height="93%" [target]='dlgTarget' [animationSettings]='dlgAnimationSettings'
+    closeOnEscape='true' [isModal]='nonModalDialog' [visible]='dialogVisibility' allowDragging='true'>
+</ejs-dialog>
+<ejs-dialog id="replyAllSeparateDialog" #replyAllSeparateDialog width="80%" height="93%" [target]='dlgTarget' [animationSettings]='dlgAnimationSettings'
+    closeOnEscape='true' [isModal]='nonModalDialog' [visible]='dialogVisibility'>
+</ejs-dialog>
+<ejs-dialog id="sentMailNewWindow" #sentMailNewWindow width="335px" header="Mail Sent" content='<div class="dlg-content-style"><span>Your mail has been sent successfully.</span></div>'
+    [target]='dlgTarget' [isModal]='nonModalDialog' [animationSettings]='dlgAnimationSettings' closeOnEscape='true'
+    [buttons] = 'sentNewDlgButtons' [visible]='dialogVisibility'>
+</ejs-dialog>
+<ejs-dialog id="discardNewWindow" #discardNewWindow width="335px" header="Discard Message" [content]='discardDlgContent'
+    [target]='dlgTarget' [isModal]='nonModalDialog' [animationSettings]='dlgAnimationSettings' closeOnEscape='true' 
+    [visible]='dialogVisibility'>
+</ejs-dialog>
+
+<ejs-popup id="popupMailId" [position]='popupPosition' [relateTo]='popupRelativeElement' [offsetX]='popupOffsetX' [offsetY]='popupOffsetY' style="position:absolute;width:320px" #popupMail>
+    <div id='popupContent' style="padding:10px 10px; width: 320px; height: 85px; background-color:#F2F2F2; color:#252525">
+        <div style="float:left;pointer-events: none;">
+            <div>
+                <div id='popup-image' class='logo logo-style1 popup-logo-style'></div>
+            </div>
+        </div>
+        <div style="left: 65px; top:5px; position: absolute;pointer-events: none;">
+            <div style="margin-top: 2px">
+                <span id='popup-contact' class="popup-subjectstyle-text" style="font-size:16px;font-weight:bold"> Richelle Mead </span>
+            </div>
+            <div class="popup-subjectstyle">
+                <span id='popup-subject' class="popup-subjectstyle-text"> Networking Referral </span>
+            </div>
+            <div class="popup-subjectstyle">
+                <span id='popup-message-content' class="popup-subjectstyle-text"> Dear Kelly, I was being referred to you by George Peterson from ROYALES Company in New York. He was ...</span>
+            </div>
+        </div>
+        <div style="left:300px;position:absolute;font-size: 12px;">
+            <span class="e-btn-icon ej-icon-Close"></span>
+        </div>
+    </div>
+</ejs-popup>
+
+<div id='persontooltip' style="display: none;">
+    <div id="persontooltipcontent" style="width: 304px;height: 91px;">
+        <div style="float:left;width: 75px;height: 70px;">
+            <div style="width: 65px;height: 65px;">
+                <img id='persontooltipimage' style="width: 100%;height: 100%;border-radius: 33px;">
+            </div>
+        </div>
+        <div style="width: 213px;height: 70px;float:left;">
+            <div style="margin-top: 17px;font-size:medium;">
+                <span id='persontooltipname'>Roman R</span>
+            </div>
+            <div style="font-size:small;margin-top: 5px;">
+                <span id='persontooltipemail'>Roman@syncfusion.com</span>
+            </div>
+            <button ejs-button id="sentemail" iconCss='ej-icon-Mail' cssClass='btn-sentMail' style="margin-top: 18px;margin-left: -74px;">Sent Email</button>
+        </div>
+    </div>
+</div>
