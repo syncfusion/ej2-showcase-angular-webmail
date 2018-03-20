@@ -24,6 +24,28 @@
   font-weight: normal;
 }
 
+.e-error {
+  color: #a80000;
+  font-family: "Segoe UI", "GeezaPro", "DejaVu Serif", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.e-control,
+.e-control [class^='e-'],
+.e-control [class*=' e-'] {
+  box-sizing: border-box;
+}
+
+.e-control:focus,
+.e-control *:focus {
+  outline: none;
+}
+
+.e-rtl {
+  direction: rtl;
+}
+
 .e-overlay {
   background-color: #383838;
   filter: alpha(opacity=50);
@@ -38,17 +60,6 @@
   display: none;
 }
 
-.e-reset {
-  border: 0;
-  font-size: 100%;
-  line-height: normal;
-  list-style: none;
-  margin: 0;
-  outline: 0 none;
-  padding: 0;
-  text-decoration: none;
-}
-
 .e-disabled {
   background-image: none;
   cursor: default;
@@ -60,130 +71,8 @@
   list-style-type: none;
 }
 
-.e-front {
-  z-index: 100;
-}
-
-.e-header {
-  display: table;
-  font-weight: bold;
-  height: 45px;
-  width: 100%;
-  z-index: 10001;
-}
-
-.e-view {
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.e-header .e-text {
-  line-height: 45px;
-  text-indent: 15px;
-}
-
-.e-header > * {
-  display: table-cell;
-}
-
-.e-has-header > .e-view {
-  top: 45px;
-}
-
-.e-control:focus,
-.e-control *:focus {
-  outline: none;
-}
-
-.e-clearfix {
-  min-height: 0;
-}
-
-.e-clearfix::before,
-.e-clearfix::after {
-  border-collapse: collapse;
-  content: '';
-  display: table;
-  line-height: 0;
-}
-
-.e-clearfix::after {
-  clear: both;
-}
-
 .e-prevent-select {
   user-select: none;
-}
-
-.e-in-wrap {
-  border: 1px solid;
-  display: block;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.e-rtl {
-  direction: rtl;
-}
-
-.e-control,
-.e-control [class^='e-'],
-.e-control [class*=' e-'] {
-  box-sizing: border-box;
-}
-
-.e-control .e-input.e-placeholder {
-  color: #bbb;
-  font-style: italic;
-  position: absolute;
-  top: 0;
-  white-space: nowrap;
-}
-
-.e-textbox {
-  height: 30px;
-  line-height: 1.908em\9;
-  outline: medium none;
-  padding-left: .857em;
-  width: 100%;
-}
-
-.e-header {
-  background: #0078d7;
-  border: #0078d7;
-  color: #fff;
-}
-
-.e-content {
-  background: #fff;
-  color: #333;
-}
-
-.e-default {
-  background: #fff;
-  color: #333;
-}
-
-.e-hover {
-  background: #eaeaea;
-  color: #333;
-}
-
-.e-active {
-  background: #b8e0ff;
-  color: #333;
-}
-
-.e-error {
-  color: #a80000;
-  font-family: "Segoe UI", "GeezaPro", "DejaVu Serif", sans-serif;
-  font-size: 14px;
-  font-weight: normal;
 }
 
 .e-warning {
@@ -200,32 +89,6 @@
 
 .e-block-touch {
   touch-action: pinch-zoom;
-}
-
-.e-text-left {
-  text-align: left;
-}
-
-.e-text-right {
-  text-align: right;
-}
-
-.e-text-center {
-  text-align: center;
-}
-
-.e-text-justify {
-  text-align: justify;
-}
-
-.e-shadow {
-  box-shadow: 0 0 9px rgba(0, 0, 0, 0.4);
-}
-
-.e-textwrap {
-  height: auto;
-  line-height: 18px;
-  white-space: normal;
 }
 
 /*! responsive desktop */
@@ -1951,7 +1814,7 @@
   font-weight: normal;
   line-height: 20px;
   user-select: none;
-  vertical-align: text-top;
+  vertical-align: middle;
   white-space: normal;
 }
 
@@ -1980,7 +1843,7 @@
   line-height: 16px;
   padding: 0;
   text-align: center;
-  vertical-align: text-top;
+  vertical-align: middle;
   width: 20px;
 }
 
@@ -2380,11 +2243,9 @@
 }
 
 input.e-input,
-input.e-input.e-css,
 .e-input-group input.e-input,
 .e-input-group.e-control-wrapper input.e-input,
 textarea.e-input,
-textarea.e-input.e-css,
 .e-input-group textarea.e-input,
 .e-input-group.e-control-wrapper textarea.e-input {
   border: 0 solid;
@@ -2403,7 +2264,6 @@ textarea.e-input.e-css,
 }
 
 input.e-input,
-input.e-input.e-css,
 .e-input-group input.e-input,
 .e-input-group input,
 .e-input-group.e-control-wrapper input.e-input,
@@ -2413,7 +2273,6 @@ input.e-input.e-css,
 .e-float-input.e-control-wrapper input,
 .e-float-input.e-control-wrapper.e-input-group input,
 input.e-input:focus,
-input.e-input.e-css:focus,
 .e-input-group input.e-input:focus,
 .e-input-group input:focus,
 .e-input-group.e-control-wrapper input.e-input:focus,
@@ -2428,7 +2287,6 @@ input.e-input.e-css:focus,
 }
 
 input.e-input,
-input.e-input.e-css,
 .e-input-group input.e-input,
 .e-input-group input,
 .e-input-group.e-control-wrapper input.e-input,
@@ -2444,29 +2302,23 @@ input.e-input.e-css,
   border-radius: 0;
 }
 
-.e-input:focus,
-.e-input.e-css:focus {
+.e-input:focus {
   border-width: 1px;
   padding-bottom: 0;
 }
 
-.e-input.e-small:focus,
-.e-input.e-small.e-css:focus {
+.e-input.e-small:focus {
   border-width: 1px;
   padding-bottom: 0;
 }
 
 .e-input.e-bigger:focus,
-.e-input.e-bigger.e-css:focus,
-.e-bigger .e-input:focus,
-.e-bigger .e-input.e-css:focus {
+.e-bigger .e-input:focus {
   padding-bottom: 0;
 }
 
 .e-input.e-small.e-bigger:focus,
-.e-bigger .e-input.e-small:focus,
-.e-input.e-small.e-bigger.e-css:focus,
-.e-bigger .e-input.e-small.e-css:focus {
+.e-bigger .e-input.e-small:focus {
   padding-bottom: 0;
 }
 
@@ -2478,15 +2330,11 @@ input.e-input.e-css,
 }
 
 input.e-input.e-bigger,
-input.e-input.e-bigger.e-css,
 textarea.e-input.e-bigger,
-textarea.e-input.e-bigger.e-css,
 .e-input-group.e-bigger .e-input,
 .e-input-group.e-bigger.e-control-wrapper .e-input,
 .e-bigger input.e-input,
-.e-bigger input.e-input.e-css,
 .e-bigger textarea.e-input,
-.e-bigger textarea.e-input.e-css,
 .e-bigger .e-input-group .e-input,
 .e-bigger .e-input-group.e-control-wrapper .e-input {
   font-size: 15px;
@@ -2549,7 +2397,6 @@ textarea.e-input.e-bigger.e-css,
 .e-input[disabled],
 .e-input-group .e-input[disabled],
 .e-input-group.e-control-wrapper .e-input[disabled],
-.e-input.e-css[disabled],
 .e-input-group.e-disabled,
 .e-input-group.e-disabled input,
 .e-input-group.e-disabled input.e-input,
@@ -2574,7 +2421,6 @@ textarea.e-input.e-bigger.e-css,
 }
 
 .e-input[disabled],
-.e-input.e-css[disabled],
 .e-input-group.e-disabled,
 .e-input-group.e-control-wrapper.e-disabled,
 .e-float-input input[disabled],
@@ -2592,7 +2438,6 @@ textarea.e-input.e-bigger.e-css,
 }
 
 .e-input[disabled],
-.e-input.e-css[disabled],
 .e-input-group.e-disabled,
 .e-input-group.e-control-wrapper.e-disabled,
 .e-float-input.e-disabled,
@@ -2608,14 +2453,12 @@ textarea.e-input.e-bigger.e-css,
 }
 
 .e-input.e-rtl,
-.e-input.e-css.e-rtl,
 .e-input-group.e-rtl,
 .e-input-group.e-control-wrapper.e-rtl {
   direction: rtl;
 }
 
-.e-input.e-corner,
-.e-input.e-css.e-corner {
+.e-input.e-corner {
   border-radius: 0;
 }
 
@@ -2690,7 +2533,6 @@ textarea.e-input.e-bigger.e-css,
 }
 
 .e-input.e-small,
-.e-input.e-css.e-small,
 .e-input-group.e-small .e-input,
 .e-input-group.e-control-wrapper.e-small .e-input {
   font-size: 13px;
@@ -2704,13 +2546,11 @@ textarea.e-input.e-bigger.e-css,
 }
 
 .e-input.e-small.e-bigger,
-.e-input.e-small.e-bigger.e-css,
 .e-input-group.e-small.e-bigger .e-input,
 .e-input-group.e-small .e-input.e-bigger,
 .e-input-group.e-control-wrapper.e-small.e-bigger .e-input,
 .e-input-group.e-control-wrapper.e-small .e-input.e-bigger,
 .e-bigger .e-input.e-small,
-.e-bigger .e-input.e-css.e-small,
 .e-bigger .e-input-group.e-small .e-input,
 .e-bigger .e-input-group.e-control-wrapper.e-small .e-input {
   font-size: 14px;
@@ -3390,18 +3230,15 @@ label.e-float-text,
 }
 
 .e-input.e-small,
-.e-input.e-css.e-small,
 .e-input-group.e-small,
 .e-input-group.e-control-wrapper.e-small {
   margin-bottom: 0;
 }
 
 .e-input.e-small.e-bigger,
-.e-input.e-css.e-small.e-bigger,
 .e-input-group.e-small.e-bigger,
 .e-input-group.e-control-wrapper.e-small.e-bigger,
 .e-bigger .e-input.e-small,
-.e-bigger .e-input.e-css.e-small,
 .e-bigger .e-input-group.e-small,
 .e-bigger .e-input-group.e-control-wrapper.e-small {
   line-height: inherit;
@@ -3556,7 +3393,6 @@ label.e-float-text,
 }
 
 input.e-input::-ms-clear,
-input.e-input.e-css::-ms-clear,
 .e-float-input input::-ms-clear,
 .e-float-input.e-control-wrapper input::-ms-clear {
   display: none;
@@ -3592,14 +3428,6 @@ input.e-input::-moz-placeholder {
   font-style: normal;
 }
 
-input.e-input.e-css::-webkit-input-placeholder,
-input.e-input.e-css:-moz-placeholder,
-input.e-input.e-css:-ms-input-placeholder,
-input.e-input.e-css::-moz-placeholder {
-  font-size: 14px;
-  font-style: normal;
-}
-
 .e-bigger input.e-input::-webkit-input-placeholder,
 input.e-bigger.e-input::-webkit-input-placeholder,
 .e-bigger input.e-input:-moz-placeholder,
@@ -3608,18 +3436,6 @@ input.e-bigger.e-input:-moz-placeholder,
 input.e-bigger.e-input:-ms-input-placeholder,
 .e-bigger input.e-input::-moz-placeholder,
 input.e-bigger.e-input::-moz-placeholder {
-  font-size: 15px;
-  font-style: normal;
-}
-
-.e-bigger input.e-input.e-css::-webkit-input-placeholder,
-input.e-bigger.e-input.e-css::-webkit-input-placeholder,
-.e-bigger input.e-input.e-css:-moz-placeholder,
-input.e-bigger.e-input.e-css:-moz-placeholder,
-.e-bigger input.e-input.e-css:-ms-input-placeholder,
-input.e-bigger.e-input.e-css:-ms-input-placeholder,
-.e-bigger input.e-input.e-css::-moz-placeholder,
-input.e-bigger.e-input.e-css::-moz-placeholder {
   font-size: 15px;
   font-style: normal;
 }
@@ -3636,18 +3452,6 @@ input.e-small.e-input::-moz-placeholder {
   font-style: normal;
 }
 
-.e-small input.e-input.e-css::-webkit-input-placeholder,
-input.e-small.e-input.e-css::-webkit-input-placeholder,
-.e-small input.e-input.e-css:-moz-placeholder,
-input.e-small.e-input.e-css:-moz-placeholder,
-.e-small input.e-input.e-css:-ms-input-placeholder,
-input.e-small.e-input.e-css:-ms-input-placeholder,
-.e-small input.e-input.e-css::-moz-placeholder,
-input.e-small.e-input.e-css::-moz-placeholder {
-  font-size: 13px;
-  font-style: normal;
-}
-
 .e-bigger input.e-small.e-input::-webkit-input-placeholder,
 .e-small input.e-bigger.e-input::-webkit-input-placeholder,
 .e-bigger input.e-small.e-input:-moz-placeholder,
@@ -3660,24 +3464,7 @@ input.e-small.e-input.e-css::-moz-placeholder {
   font-style: normal;
 }
 
-.e-bigger input.e-small.e-input.e-css::-webkit-input-placeholder,
-.e-small input.e-bigger.e-input.e-css::-webkit-input-placeholder,
-.e-bigger input.e-small.e-input.e-css:-moz-placeholder,
-.e-small input.e-bigger.e-inpu.e-csst:-moz-placeholder,
-.e-bigger input.e-small.e-input.e-css:-ms-input-placeholder,
-.e-small input.e-bigger.e-input.e-css:-ms-input-placeholder,
-.e-bigger input.e-small.e-input.e-css::-moz-placeholder,
-.e-small input.e-bigger.e-input.e-css::-moz-placeholder {
-  font-size: 14px;
-  font-style: normal;
-}
-
 input.e-input:-moz-placeholder {
-  font-style: normal;
-  user-select: none;
-}
-
-input.e-input.e-css:-moz-placeholder {
   font-style: normal;
   user-select: none;
 }
@@ -3693,11 +3480,6 @@ input.e-input.e-css:-moz-placeholder {
 }
 
 input.e-input:-moz-placeholder {
-  font-style: normal;
-  user-select: none;
-}
-
-input.e-input.e-css:-moz-placeholder {
   font-style: normal;
   user-select: none;
 }
@@ -3717,17 +3499,7 @@ textarea.e-input:-moz-placeholder {
   user-select: none;
 }
 
-textarea.e-input.e-css:-moz-placeholder {
-  font-style: normal;
-  user-select: none;
-}
-
 input.e-input::-moz-placeholder {
-  font-style: normal;
-  user-select: none;
-}
-
-input.e-input.e-css::-moz-placeholder {
   font-style: normal;
   user-select: none;
 }
@@ -3737,17 +3509,7 @@ textarea.e-input::-moz-placeholder {
   user-select: none;
 }
 
-textarea.e-input.e-css::-moz-placeholder {
-  font-style: normal;
-  user-select: none;
-}
-
 input.e-input:-ms-input-placeholder {
-  font-style: normal;
-  user-select: none;
-}
-
-input.e-input.e-css:-ms-input-placeholder {
   font-style: normal;
   user-select: none;
 }
@@ -3757,17 +3519,7 @@ textarea.e-input:-ms-input-placeholder {
   user-select: none;
 }
 
-textarea.e-input.e-css:-ms-input-placeholder {
-  font-style: normal;
-  user-select: none;
-}
-
 input.e-input::-webkit-input-placeholder {
-  font-style: normal;
-  user-select: none;
-}
-
-input.e-input.e-css::-webkit-input-placeholder {
   font-style: normal;
   user-select: none;
 }
@@ -3777,13 +3529,7 @@ textarea.e-input::-webkit-input-placeholder {
   user-select: none;
 }
 
-textarea.e-input.e-css::-webkit-input-placeholder {
-  font-style: normal;
-  user-select: none;
-}
-
 input.e-input,
-input.e-input.e-css,
 .e-input-group input,
 .e-input-group.e-control-wrapper input,
 .e-float-input.e-control-wrapper input,
@@ -3804,7 +3550,6 @@ input.e-input.e-css,
 }
 
 input.e-input.e-bigger,
-input.e-input.e-bigger.e-css,
 .e-input-group.e-bigger input,
 .e-input-group.e-bigger input.e-input,
 .e-input-group.e-control-wrapper.e-bigger input,
@@ -3838,7 +3583,6 @@ input.e-input.e-bigger.e-css,
 }
 
 input.e-input.e-small,
-input.e-input.e-small.e-css,
 .e-input-group.e-small input,
 .e-input-group.e-small input.e-input,
 .e-small .e-input-group input,
@@ -3872,7 +3616,6 @@ input.e-input.e-small.e-css,
 }
 
 input.e-input.e-small.e-bigger,
-input.e-input.e-small.e-bigger.e-css,
 .e-input-group.e-bigger.e-small input,
 .e-input-group.e-bigger.e-small input.e-input,
 .e-bigger.e-small .e-input-group input,
@@ -3907,7 +3650,6 @@ input.e-input.e-small.e-bigger.e-css,
 
 textarea.e-input,
 .e-input-group textarea,
-textarea.e-input.e-css,
 .e-input-group.e-control-wrapper textarea,
 .e-float-input textarea,
 .e-float-input.e-control-wrapper textarea {
@@ -3917,7 +3659,7 @@ textarea.e-input.e-css,
 
 .e-input-group textarea.e-input.e-bigger,
 .e-input-group.e-control-wrapper textarea.e-input.e-bigger,
-textarea.e-input.e-bigger.e-css,
+textarea.e-input.e-bigger,
 .e-input-group.e-bigger textarea,
 .e-input-group.e-bigger textarea.e-input,
 .e-bigger .e-input-group textarea,
@@ -3939,7 +3681,6 @@ textarea.e-input.e-bigger.e-css,
 }
 
 textarea.e-input.e-small,
-textarea.e-input.e-small.e-css,
 .e-input-group.e-small textarea,
 .e-input-group.e-small textarea.e-input,
 .e-small .e-input-group textarea,
@@ -3961,7 +3702,6 @@ textarea.e-input.e-small.e-css,
 }
 
 textarea.e-input.e-small.e-bigger,
-textarea.e-input.e-small.e-bigger.e-css,
 .e-input-group.e-bigger.e-small textarea,
 .e-input-group.e-bigger.e-small textarea.e-input,
 .e-bigger.e-small .e-input-group textarea,
@@ -3987,11 +3727,9 @@ input.e-input.e-bigger,
 .e-input-group input.e-input.e-bigger,
 .e-input-group.e-control-wrapper input.e-input.e-bigger,
 .e-input-group.e-control-wrapper input.e-input.e-bigger,
-input.e-input.e-bigger.e-css,
 .e-input-group.e-bigger .e-input,
 .e-input-group.e-control-wrapper.e-bigger .e-input,
 .e-bigger input.e-input,
-.e-bigger input.e-input.e-css,
 .e-bigger .e-input-group .e-input,
 .e-bigger .e-input-group.e-control-wrapper .e-input,
 .e-float-input.e-bigger input,
@@ -4004,13 +3742,11 @@ input.e-input.e-bigger.e-css,
 }
 
 input.e-input.e-small,
-input.e-input.e-css.e-small,
 .e-input-group input.e-input.e-small,
 .e-input-group.e-control-wrapper input.e-input.e-small,
 .e-input-group.e-small .e-input,
 .e-input-group.e-control-wrapper.e-small .e-input,
 .e-small input.e-input,
-.e-small input.e-input.e-css,
 .e-small .e-input-group .e-input,
 .e-small .e-input-group.e-control-wrapper .e-input,
 .e-float-input.e-small input,
@@ -4023,7 +3759,6 @@ input.e-input.e-css.e-small,
 }
 
 input.e-input,
-input.e-input.e-css,
 .e-input-group input.e-input,
 .e-input-group input,
 .e-input-group.e-control-wrapper input.e-input,
@@ -4041,7 +3776,6 @@ input.e-input.e-css,
 }
 
 textarea.e-input,
-textarea.e-input.e-css,
 .e-input-group textarea.e-input,
 .e-input-group textarea,
 .e-input-group.e-control-wrapper textarea.e-input,
@@ -4059,7 +3793,6 @@ textarea.e-input.e-css,
 }
 
 input.e-input.e-rtl,
-input.e-input.e-rtl.e-css,
 .e-input-group.e-rtl input.e-input,
 .e-input-group.e-control-wrapper.e-rtl input.e-input,
 .e-float-input.e-rtl input,
@@ -4090,7 +3823,6 @@ input.e-input.e-rtl.e-css,
 }
 
 textarea.e-input.e-rtl,
-textarea.e-input.e-rtl.e-css,
 .e-input-group.e-rtl textarea.e-input,
 .e-input-group.e-control-wrapper.e-rtl textarea.e-input,
 .e-float-input.e-rtl textarea,
@@ -4120,9 +3852,7 @@ textarea.e-input.e-rtl.e-css,
 }
 
 input.e-input.e-small,
-input.e-input.e-small.e-css,
 .e-small input.e-input,
-.e-small input.e-input.e-css,
 .e-input-group.e-small input.e-input,
 .e-input-group.e-control-wrapper.e-small input.e-input,
 .e-float-input.e-small input,
@@ -4149,8 +3879,6 @@ input.e-input.e-small.e-css,
 
 textarea.e-input.e-small,
 .e-small textarea.e-input,
-textarea.e-input.e-small.e-css,
-.e-small textarea.e-input.e-css,
 .e-input-group.e-small textarea.e-input,
 .e-input-group.e-control-wrapper.e-small textarea.e-input,
 .e-float-input.e-control-wrapper.e-small textarea,
@@ -4179,10 +3907,6 @@ textarea.e-input.e-small.e-css,
 input.e-input.e-small.e-rtl,
 .e-small.e-rtl input.e-input,
 .e-small input.e-input.e-rtl,
-.e-rtl input.e-input.e-small.e-css,
-input.e-input.e-css.e-small.e-rtl,
-.e-small.e-rtl input.e-input.e-css,
-.e-small input.e-input.e-rtl.e-css,
 .e-float-input.e-control-wrapper.e-small.e-rtl input,
 .e-float-input.e-small.e-rtl input,
 .e-input-group.e-small.e-rtl input.e-input,
@@ -4224,10 +3948,6 @@ input.e-input.e-css.e-small.e-rtl,
 textarea.e-input.e-small.e-rtl,
 .e-small.e-rtl textarea.e-input,
 .e-small textarea.e-input.e-rtl,
-.e-rtl textarea.e-input.e-small.e-css,
-textarea.e-input.e-small.e-rtl.e-css,
-.e-small.e-rtl textarea.e-input.e-css,
-.e-small textarea.e-input.e-rtl.e-css,
 .e-float-input.e-small.e-rtl textarea,
 .e-float-input.e-control-wrapper.e-small.e-rtl textarea,
 .e-input-group.e-small.e-rtl textarea.e-input,
@@ -4266,8 +3986,6 @@ textarea.e-input.e-small.e-rtl.e-css,
 
 input.e-input.e-bigger,
 .e-bigger input.e-input,
-input.e-input.e-bigger.e-css,
-.e-bigger input.e-input.e-css,
 .e-input-group.e-bigger input.e-input,
 .e-input-group.e-control-wrapper.e-bigger input.e-input,
 .e-float-input.e-control-wrapper.e-bigger input,
@@ -4296,10 +4014,6 @@ input.e-input.e-bigger.e-css,
 input.e-input.e-bigger.e-rtl,
 .e-bigger.e-rtl input.e-input,
 .e-bigger input.e-input.e-rtl,
-.e-rtl input.e-input.e-bigger.e-css,
-input.e-input.e-bigger.e-rtl.e-css,
-.e-bigger.e-rtl input.e-input.e-css,
-.e-bigger input.e-input.e-rtl.e-css,
 .e-float-input.e-control-wrapper.e-bigger.e-rtl input,
 .e-float-input.e-bigger.e-rtl input,
 .e-input-group.e-bigger.e-rtl input.e-input,
@@ -4339,8 +4053,6 @@ input.e-input.e-bigger.e-rtl.e-css,
 
 textarea.e-input.e-bigger,
 .e-bigger textarea.e-input,
-textarea.e-input.e-bigger.e-css,
-.e-bigger textarea.e-input.e-css,
 .e-input-group.e-bigger textarea.e-input,
 .e-input-group.e-control-wrapper.e-bigger textarea.e-input,
 .e-float-input.e-control-wrapper.e-bigger textarea,
@@ -4369,10 +4081,6 @@ textarea.e-input.e-bigger.e-css,
 textarea.e-input.e-bigger.e-rtl,
 .e-bigger.e-rtl textarea.e-input,
 .e-bigger textarea.e-input.e-rtl,
-.e-rtl textarea.e-input.e-bigger.e-css,
-textarea.e-input.e-bigger.e-rtl.e-css,
-.e-bigger.e-rtl textarea.e-input.e-css,
-.e-bigger textarea.e-input.e-rtl.e-css,
 .e-float-input.e-control-wrapper.e-bigger.e-rtl textarea,
 .e-float-input.e-bigger.e-rtl textarea,
 .e-input-group.e-bigger.e-rtl textarea.e-input,
@@ -4411,8 +4119,6 @@ textarea.e-input.e-bigger.e-rtl.e-css,
 
 input.e-input.e-bigger.e-small,
 .e-bigger input.e-input.e-small,
-input.e-input.e-bigger.e-small.e-css,
-.e-bigger input.e-input.e-small.e-css,
 .e-input-group.e-small.e-bigger input.e-input,
 .e-input-group.e-control-wrapper.e-small.e-bigger input.e-input,
 .e-input-group.e-small input.e-input.e-bigger,
@@ -4442,7 +4148,6 @@ input.e-input.e-bigger.e-small.e-css,
 }
 
 .e-bigger input.e-input.e-small.e-rtl,
-.e-bigger input.e-input.e-small.e-rtl.e-css,
 .e-input-group.e-small.e-bigger.e-rtl input.e-input,
 .e-input-group.e-control-wrapper.e-small.e-bigger.e-rtl input.e-input,
 .e-input-group.e-small.e-rtl input.e-input.e-bigger,
@@ -4499,8 +4204,6 @@ input.e-input.e-bigger.e-small.e-css,
 
 textarea.e-input.e-bigger.e-small,
 .e-bigger textarea.e-input.e-small,
-textarea.e-input.e-bigger.e-small.e-css,
-.e-bigger textarea.e-input.e-small.e-css,
 .e-input-group.e-small.e-bigger textarea.e-input,
 .e-input-group.e-control-wrapper.e-small.e-bigger textarea.e-input,
 .e-input-group.e-small textarea.e-input.e-bigger,
@@ -4530,7 +4233,6 @@ textarea.e-input.e-bigger.e-small.e-css,
 }
 
 .e-bigger textarea.e-input.e-small.e-rtl,
-.e-bigger textarea.e-input.e-small.e-rtl.e-css,
 .e-input-group.e-small.e-bigger.e-rtl textarea.e-input,
 .e-input-group.e-control-wrapper.e-small.e-bigger.e-rtl textarea.e-input,
 .e-input-group.e-small.e-rtl textarea.e-input.e-bigger,
@@ -4544,7 +4246,6 @@ textarea.e-input.e-bigger.e-small.e-css,
 .e-float-input.e-control-wrapper.e-small.e-rtl textarea.e-bigger,
 .e-bigger .e-float-input.e-control-wrapper.e-small.e-rtl textarea,
 .e-bigger.e-rtl textarea.e-input.e-small,
-.e-bigger.e-rtl textarea.e-input.e-small.e-css,
 .e-rtl .e-input-group.e-small.e-bigger textarea.e-input,
 .e-rtl .e-input-group.e-control-wrapper.e-small.e-bigger textarea.e-input,
 .e-rtl .e-input-group.e-small textarea.e-input.e-bigger,
@@ -4816,8 +4517,6 @@ textarea.e-input.e-bigger.e-small.e-css,
 
 .e-input:not(:valid),
 .e-input:valid,
-.e-input.e-css:not(:valid),
-.e-input.e-css:valid,
 .e-float-input.e-control-wrapper input:not(:valid),
 .e-float-input.e-control-wrapper input:valid,
 .e-float-input input:not(:valid),
@@ -4988,11 +4687,9 @@ textarea.e-input.e-bigger.e-small.e-css,
 
 /*! input theme */
 input.e-input,
-input.e-input.e-css,
 .e-input-group input.e-input,
 .e-input-group.e-control-wrapper input.e-input,
 textarea.e-input,
-textarea.e-input.e-css,
 .e-float-input input,
 .e-float-input.e-control-wrapper input,
 .e-float-input textarea,
@@ -5017,7 +4714,6 @@ textarea.e-input.e-css,
 }
 
 .e-input[readonly],
-.e-input.e-css[readonly],
 .e-input-group .e-input[readonly],
 .e-input-group.e-control-wrapper .e-input[readonly] {
   background: #fff;
@@ -5029,7 +4725,6 @@ textarea.e-input.e-css,
 }
 
 .e-input[disabled],
-.e-input.e-css[disabled],
 .e-input-group .e-input[disabled],
 .e-input-group.e-control-wrapper .e-input[disabled],
 .e-input-group.e-disabled,
@@ -5056,9 +4751,7 @@ textarea.e-input.e-css,
 }
 
 .e-input.e-success,
-.e-input.e-css.e-success,
 .e-input.e-success:focus,
-.e-input.e-css.e-success:focus,
 .e-input-group.e-success input.e-input,
 .e-input-group.e-control-wrapper.e-success input.e-input,
 .e-input-group.e-success .e-input-group-icon,
@@ -5068,8 +4761,6 @@ textarea.e-input.e-css,
 
 .e-input.e-warning,
 .e-input.e-warning:focus,
-.e-input.e-css.e-warning,
-.e-input.e-css.e-warning:focus,
 .e-input-group.e-warning input.e-input,
 .e-input-group.e-control-wrapper.e-warning input.e-input,
 .e-input-group.e-warning .e-input-group-icon,
@@ -5079,8 +4770,6 @@ textarea.e-input.e-css,
 
 .e-input.e-error,
 .e-input.e-error:focus,
-.e-input.e-css.e-error,
-.e-input.e-css.e-error:focus,
 .e-input-group.e-error input.e-input,
 .e-input-group.e-control-wrapper.e-error input.e-input,
 .e-input-group.e-control-wrapper.e-error .e-input-group-icon,
@@ -5155,8 +4844,6 @@ label.e-float-text,
 
 input.e-input::selection,
 textarea.e-input::selection,
-input.e-input.e-css::selection,
-textarea.e-input.e-css::selection,
 .e-input-group input.e-input::selection,
 .e-input-group.e-control-wrapper input.e-input::selection,
 .e-float-input input::selection,
@@ -5175,10 +4862,6 @@ input.e-input:-moz-placeholder {
   color: #a6a6a6;
 }
 
-input.e-input.e-css:-moz-placeholder {
-  color: #a6a6a6;
-}
-
 .e-input-group input.e-input:-moz-placeholder {
   color: #a6a6a6;
 }
@@ -5189,10 +4872,6 @@ input.e-input.e-css:-moz-placeholder {
 }
 
 input.e-input:-moz-placeholder {
-  color: #a6a6a6;
-}
-
-input.e-input.e-css:-moz-placeholder {
   color: #a6a6a6;
 }
 
@@ -5208,10 +4887,6 @@ textarea.e-input:-moz-placeholder {
   color: #a6a6a6;
 }
 
-textarea.e-input.e-css:-moz-placeholder {
-  color: #a6a6a6;
-}
-
 .e-input-group textarea.e-input:-moz-placeholder {
   color: #a6a6a6;
 }
@@ -5221,10 +4896,6 @@ textarea.e-input.e-css:-moz-placeholder {
 }
 
 input.e-input::-moz-placeholder {
-  color: #a6a6a6;
-}
-
-input.e-input.e-css::-moz-placeholder {
   color: #a6a6a6;
 }
 
@@ -5248,10 +4919,6 @@ textarea.e-input::-moz-placeholder {
   color: #a6a6a6;
 }
 
-textarea.e-input.e-css::-moz-placeholder {
-  color: #a6a6a6;
-}
-
 input.e-input:-ms-input-placeholder {
   color: #a6a6a6;
 }
@@ -5261,10 +4928,6 @@ input.e-input:-ms-input-placeholder {
 }
 
 .e-input-group.e-control-wrapper input.e-input:-ms-input-placeholder {
-  color: #a6a6a6;
-}
-
-input.e-input.e-css:-ms-input-placeholder {
   color: #a6a6a6;
 }
 
@@ -5280,10 +4943,6 @@ textarea.e-input:-ms-input-placeholder {
   color: #a6a6a6;
 }
 
-textarea.e-input.e-css:-ms-input-placeholder {
-  color: #a6a6a6;
-}
-
 input.e-input::-webkit-input-placeholder {
   color: #a6a6a6;
 }
@@ -5296,10 +4955,6 @@ input.e-input::-webkit-input-placeholder {
   color: #a6a6a6;
 }
 
-input.e-input.e-css::-webkit-input-placeholder {
-  color: #a6a6a6;
-}
-
 textarea.e-input::-webkit-input-placeholder {
   color: #a6a6a6;
 }
@@ -5309,10 +4964,6 @@ textarea.e-input::-webkit-input-placeholder {
 }
 
 .e-input-group.e-control-wrapper textarea.e-input::-webkit-input-placeholder {
-  color: #a6a6a6;
-}
-
-textarea.e-input.e-css::-webkit-input-placeholder {
   color: #a6a6a6;
 }
 
@@ -5371,7 +5022,6 @@ textarea.e-input.e-css::-webkit-input-placeholder {
 }
 
 .e-input:focus:not(.e-success):not(.e-warning):not(.e-error),
-.e-input.e-css:focus:not(.e-success):not(.e-warning):not(.e-error),
 .e-float-input:not(.e-success):not(.e-warning):not(.e-error):not(.e-input-group) input:focus,
 .e-float-input.e-control-wrapper:not(.e-success):not(.e-warning):not(.e-error):not(.e-input-group) input:focus,
 .e-float-input.e-control-wrapper:not(.e-success):not(.e-warning):not(.e-error):not(.e-input-group) textarea:focus {
@@ -5678,9 +5328,7 @@ textarea.e-input.e-css::-webkit-input-placeholder {
 }
 
 input.e-input:hover:not(.e-success):not(.e-warning):not(.e-error):not([disabled]):not(:focus),
-input.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([disabled]):not(:focus),
-textarea.e-input:hover:not(.e-success):not(.e-warning):not(.e-error):not([disabled]),
-textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([disabled]) {
+textarea.e-input:hover:not(.e-success):not(.e-warning):not(.e-error):not([disabled]) {
   border-color: #767676;
 }
 
@@ -7440,6 +7088,12 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   vertical-align: middle;
 }
 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .e-toolbar .e-toolbar-items {
+    margin: 0;
+  }
+}
+
 .e-toolbar .e-toolbar-items .e-toolbar-item .e-icons {
   line-height: 25px;
   min-height: 25px;
@@ -8631,12 +8285,8 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   opacity: 1;
 }
 
-.e-dlg-content,
-.e-dlg-content * {
+.e-dlg-content {
   color: #333;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.5;
 }
 
 .e-device .e-dlg-content,
@@ -8900,7 +8550,7 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   font-size: 20px;
 }
 
-.e-ddl.e-input-group .e-ddl-icon::before {
+.e-ddl.e-input-group.e-control-wrapper .e-ddl-icon::before {
   content: "";
   font-family: 'e-icons';
 }
@@ -9010,6 +8660,13 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   visibility: hidden;
 }
 
+.e-ddl.e-input-group .e-ddl-hidden {
+  border: 0;
+  height: 0;
+  visibility: hidden;
+  width: 0;
+}
+
 .e-ddl.e-input-group,
 .e-ddl.e-input-group.e-input-focus:focus {
   outline: none;
@@ -9053,14 +8710,9 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   color: #333;
 }
 
-.e-multi-select-wrapper.e-delimiter .e-searcher {
-  height: 90%;
-  vertical-align: middle;
-}
-
-.e-multi-select-wrapper.e-delimiter .e-searcher .e-dropdownbase {
-  height: 100%;
-  min-height: 100%;
+.e-multi-select-wrapper.e-down-icon .e-input-group-icon.e-ddl-icon {
+  height: 30px;
+  width: 30px;
 }
 
 .e-multi-select-wrapper .e-close-hooker::before {
@@ -9071,7 +8723,7 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   top: 10px;
 }
 
-.e-multi-select-wrapper .e-chips .e-chips-close.e-icon::before {
+.e-multi-select-wrapper .e-chips .e-chips-close::before {
   content: "";
   cursor: pointer;
   left: 8px;
@@ -9098,11 +8750,21 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   width: 100%;
 }
 
+.e-multi-select-wrapper.e-delimiter .e-searcher {
+  height: 27px;
+  vertical-align: middle;
+}
+
+.e-multi-select-wrapper.e-delimiter .e-searcher .e-dropdownbase {
+  height: 100%;
+  min-height: 100%;
+}
+
 .e-multi-select-wrapper .e-delim-view {
   white-space: nowrap;
 }
 
-.e-multi-select-wrapper .e-chips.e-mob-chip.e-chip-selected .e-chips-close.e-icon::before {
+.e-multi-select-wrapper .e-chips.e-mob-chip.e-chip-selected .e-chips-close::before {
   color: #fff;
   font-size: 10px;
   left: 12px;
@@ -9116,7 +8778,7 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
 }
 
 .e-multi-select-wrapper .e-searcher.e-zero-size {
-  width: 1px;
+  width: 0;
 }
 
 .e-multi-select-wrapper .e-searcher.e-zero-size input[type='text'] {
@@ -9139,6 +8801,13 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
 .e-multi-select-wrapper .e-chips-collection {
   cursor: default;
   display: block;
+}
+
+.e-multi-select-wrapper .e-multi-hidden {
+  border: 0;
+  height: 0;
+  visibility: hidden;
+  width: 0;
 }
 
 .e-multi-select-wrapper .e-chips {
@@ -9177,7 +8846,7 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   padding: 6px 0 6px 8px;
 }
 
-.e-multi-select-wrapper .e-chips-close.e-icon {
+.e-multi-select-wrapper .e-chips-close {
   align-self: center;
   display: flex;
   float: right;
@@ -9187,11 +8856,11 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   width: 26px;
 }
 
-.e-multi-select-wrapper .e-mob-chip.e-chips .e-chips-close.e-icon {
+.e-multi-select-wrapper .e-mob-chip.e-chips .e-chips-close {
   margin: 3px 0 0;
 }
 
-.e-multi-select-wrapper .e-chips-close.e-icon.e-close-hooker {
+.e-multi-select-wrapper .e-chips-close.e-close-hooker {
   cursor: default;
   font-size: 10px;
   height: 30px;
@@ -9202,11 +8871,11 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   width: 30px;
 }
 
-.e-multiselect .e-down-icon .e-chips-close.e-icon.e-close-hooker {
+.e-multiselect .e-down-icon .e-chips-close.e-close-hooker {
   right: 27px;
 }
 
-.e-bigger .e-multi-select-wrapper .e-chips-close.e-icon.e-close-hooker {
+.e-bigger .e-multi-select-wrapper .e-chips-close.e-close-hooker {
   margin-top: -3.5em;
 }
 
@@ -9271,11 +8940,11 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
 }
 
 .e-multiselect.e-disabled .e-multi-select-wrapper,
-.e-multiselect.e-disabled .e-multi-select-wrapper .e-chips .e-chips-close.e-icon::before {
+.e-multiselect.e-disabled .e-multi-select-wrapper .e-chips .e-chips-close::before {
   cursor: not-allowed;
 }
 
-.e-multi-select-wrapper .e-chips.e-mob-chip.e-chip-selected .e-chips-close.e-icon {
+.e-multi-select-wrapper .e-chips.e-mob-chip.e-chip-selected .e-chips-close {
   height: 38px;
   left: 10px;
   margin: 0 0 0 0;
@@ -9308,11 +8977,11 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   padding: 0 2px 0 32px;
 }
 
-.e-multiselect.e-rtl .e-multi-select-wrapper .e-chips.e-mob-chip.e-chip-selected .e-chips-close.e-icon::before {
+.e-multiselect.e-rtl .e-multi-select-wrapper .e-chips.e-mob-chip.e-chip-selected .e-chips-close::before {
   left: -12px;
 }
 
-.e-multiselect.e-rtl .e-multi-select-wrapper .e-chips.e-mob-chip.e-chip-selected .e-chips-close.e-icon {
+.e-multiselect.e-rtl .e-multi-select-wrapper .e-chips.e-mob-chip.e-chip-selected .e-chips-close {
   margin: 0;
 }
 
@@ -9330,11 +8999,11 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   padding: 3px 0 3px 8px;
 }
 
-.e-multiselect.e-rtl .e-multi-select-wrapper .e-chips .e-chips-close.e-icon {
+.e-multiselect.e-rtl .e-multi-select-wrapper .e-chips .e-chips-close {
   float: left;
 }
 
-.e-multiselect.e-rtl .e-multi-select-wrapper .e-chips .e-chips-close.e-icon::before {
+.e-multiselect.e-rtl .e-multi-select-wrapper .e-chips .e-chips-close::before {
   left: -9px;
 }
 
@@ -9354,8 +9023,8 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   padding: 9px 4px;
 }
 
-.e-multiselect.e-rtl .e-multi-select-wrapper .e-chips-close.e-icon.e-close-hooker {
-  left: 0;
+.e-multiselect.e-rtl .e-multi-select-wrapper .e-chips-close.e-close-hooker {
+  left: 27px;
   position: absolute;
   right: auto;
 }
@@ -9366,6 +9035,14 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
 
 .e-multiselect.e-rtl .e-multi-select-wrapper .e-delim-values .e-remain {
   padding-right: 16px;
+}
+
+.e-multiselect.e-rtl .e-down-icon .e-chips-close.e-icon.e-close-hooker {
+  left: 30px;
+}
+
+.e-multiselect.e-rtl .e-multi-select-wrapper.e-down-icon .e-close-hooker::before {
+  left: -10px;
 }
 
 .e-popup.e-multi-select-list-wrapper .e-list-item .e-checkbox-wrapper {
@@ -9388,6 +9065,10 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
 
 .e-popup.e-multi-select-list-wrapper.e-rtl .e-list-item {
   padding-right: 0;
+}
+
+.e-popup.e-multi-select-list-wrapper.e-rtl .e-dropdownbase.e-rtl.e-dd-group .e-list-item {
+  padding-right: 19px;
 }
 
 .e-multi-select-list-wrapper .e-selectall-parent {
@@ -9471,6 +9152,7 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
 }
 
 .e-checkbox .e-multi-select-wrapper .e-delim-values .e-remain {
+  line-height: 20px;
   padding-left: 10px;
 }
 
@@ -9490,7 +9172,7 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   pointer-events: none;
 }
 
-.e-multi-select-wrapper .e-chips.e-chip-selected .e-chips-close.e-icon::before {
+.e-multi-select-wrapper .e-chips.e-chip-selected .e-chips-close::before {
   color: #666;
 }
 
@@ -9534,7 +9216,7 @@ textarea.e-input.e-css:hover:not(.e-success):not(.e-warning):not(.e-error):not([
   color: #666;
 }
 
-.e-multi-select-wrapper .e-chips .e-chips-close.e-icon::before {
+.e-multi-select-wrapper .e-chips .e-chips-close::before {
   color: #666;
   font-size: 10px;
 }
