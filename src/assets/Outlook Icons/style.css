@@ -1,0 +1,229 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?rjjyu7');
+  src:  url('fonts/icomoon.eot?rjjyu7#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?rjjyu7') format('truetype'),
+    url('fonts/icomoon.woff?rjjyu7') format('woff'),
+    url('fonts/icomoon.svg?rjjyu7#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="ej-icon-"], [class*=" ej-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ej-icon-More:before {
+  content: "\e701";
+}
+.ej-icon-Search:before {
+  content: "\e702";
+}
+.ej-icon-Notify:before {
+  content: "\e704";
+}
+.ej-icon-Help-white:before {
+  content: "\e703";
+}
+.ej-icon-Close:before {
+  content: "\e950";
+}
+.ej-icon-Agenda .path1:before {
+  content: "\e900";
+  color: rgb(0, 0, 0);
+}
+.ej-icon-Agenda .path2:before {
+  content: "\e901";
+  margin-left: -0.9931640625em;
+  color: rgb(0, 0, 0);
+}
+.ej-icon-Agenda .path3:before {
+  content: "\e902";
+  margin-left: -0.9931640625em;
+  color: rgb(255, 255, 255);
+}
+.ej-icon-Agenda .path4:before {
+  content: "\e903";
+  margin-left: -0.9931640625em;
+  color: rgb(0, 0, 0);
+}
+.ej-icon-Agenda .path5:before {
+  content: "\e904";
+  margin-left: -0.9931640625em;
+  color: rgb(255, 255, 255);
+}
+.ej-icon-Archive:before {
+  content: "\e905";
+}
+.ej-icon-Attach:before {
+  content: "\e906";
+}
+.ej-icon-Back:before {
+  content: "\e907";
+}
+.ej-icon-Bento:before {
+  content: "\e908";
+}
+.ej-icon-Blue:before {
+  content: "\e909";
+  color: #55abe5;
+}
+.ej-icon-Bold:before {
+  content: "\e90a";
+}
+.ej-icon-Bullets:before {
+  content: "\e90b";
+}
+.ej-icon-Calendar:before {
+  content: "\e911";
+}
+.ej-icon-Centre-aligned:before {
+  content: "\e912";
+}
+.ej-icon-Checkbox-Composite:before {
+  content: "\e913";
+}
+.ej-icon-Checkbox:before {
+  content: "\e914";
+}
+.ej-icon-Copy:before {
+  content: "\e915";
+}
+.ej-icon-Create-New:before {
+  content: "\e916";
+}
+.ej-icon-Decr-Indent:before {
+  content: "\e917";
+}
+.ej-icon-Delete:before {
+  content: "\e91c";
+}
+.ej-icon-Dropdown-arrow:before {
+  content: "\e91d";
+}
+.ej-icon-Favorite-Composite:before {
+  content: "\e91e";
+}
+.ej-icon-Favorite:before {
+  content: "\e91f";
+}
+.ej-icon-Flag_1:before {
+  content: "\e920";
+}
+.ej-icon-Font-Color-Icon:before {
+  content: "\e921";
+}
+.ej-icon-Font-Size:before {
+  content: "\e923";
+}
+.ej-icon-Font:before {
+  content: "\e925";
+}
+.ej-icon-Green:before {
+  content: "\e926";
+  color: #5fbe7c;
+}
+.ej-icon-Help:before {
+  content: "\e927";
+}
+.ej-icon-Highlight:before {
+  content: "\e928";
+}
+.ej-icon-Hyperlink:before {
+  content: "\e92b";
+  color: #7e7e7e;
+}
+.ej-icon-Incr-Indent:before {
+  content: "\e92c";
+}
+.ej-icon-Italic:before {
+  content: "\e931";
+}
+.ej-icon-Left-aligned:before {
+  content: "\e932";
+}
+.ej-icon-Like:before {
+  content: "\e933";
+}
+.ej-icon-Mail:before {
+  content: "\e934";
+}
+.ej-icon-Mark-as-read:before {
+  content: "\e935";
+}
+.ej-icon-Menu:before {
+  content: "\e936";
+}
+.ej-icon-More2:before {
+  content: "\e937";
+}
+.ej-icon-New:before {
+  content: "\e700";
+}
+.ej-icon-Notification2:before {
+  content: "\e939";
+  color: #fff;
+}
+.ej-icon-Numbering:before {
+  content: "\e93a";
+}
+.ej-icon-Orange:before {
+  content: "\e940";
+  color: #ff8c03;
+}
+.ej-icon-People:before {
+  content: "\e941";
+}
+.ej-icon-Pin:before {
+  content: "\e942";
+}
+.ej-icon-Purple:before {
+  content: "\e943";
+  color: #a895e2;
+}
+.ej-icon-Red:before {
+  content: "\e945";
+  color: #f07d88;
+}
+.ej-icon-Reply-All:before {
+  content: "\e946";
+}
+.ej-icon-Reply:before {
+  content: "\e947";
+}
+.ej-icon-Right-aligned:before {
+  content: "\e948";
+}
+.ej-icon-Right:before {
+  content: "\e949";
+}
+.ej-icon-Search2:before {
+  content: "\e94a";
+}
+.ej-icon-Send:before {
+  content: "\e94b";
+}
+.ej-icon-Settings:before {
+  content: "\e705";
+}
+.ej-icon-Underlined:before {
+  content: "\e94d";
+}
+.ej-icon-Undo:before {
+  content: "\e94e";
+}
+.ej-icon-Yellow:before {
+  content: "\e94f";
+  color: #fff100;
+}
