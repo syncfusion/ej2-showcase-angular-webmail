@@ -3,7 +3,8 @@ import { TreeViewComponent, ToolbarComponent, AccordionComponent, ContextMenuCom
     ClickEventArgs } from '@syncfusion/ej2-ng-navigations';
 import { ListViewComponent } from '@syncfusion/ej2-ng-lists';
 import { AutoCompleteComponent, ChangeEventArgs } from '@syncfusion/ej2-ng-dropdowns';
-import { DialogComponent, PopupComponent } from '@syncfusion/ej2-ng-popups';
+import { DialogComponent } from '@syncfusion/ej2-ng-popups';
+import { Popup, Dialog } from '@syncfusion/ej2-popups';
 import { NewMailComponent } from './content-area/content/content-pane/newmail/newmail.component';
 import { ReadingPaneComponent } from './content-area/readingpane/readingpane.component';
 import { folderData, messageDataSourceNew } from './data/datasource';
@@ -29,11 +30,10 @@ export class DataService {
     public searchFields: Object = { text: 'MailId', value: 'MailId' };
 
     public grpListObj: ListViewComponent;
-    public filterContextMenu: ContextMenuComponent;
-    public popupMail: PopupComponent;
+    public filterContextMenu: ContextMenuComponent; 
     public newMailComponent: NewMailComponent;
     public acrdnObj: AccordionComponent;
-    public dlgNewWindow: DialogComponent;
+    public dlgNewWindow: Dialog;
     public dlgSentMail: DialogComponent;
     public dlgSentMailNew: DialogComponent;
     public dlgReplyAllWindow: DialogComponent;
@@ -41,6 +41,7 @@ export class DataService {
     public acSearchMobile: AutoCompleteComponent;
     public readingPaneComponent: ReadingPaneComponent;
     public treeObj: TreeViewComponent;
+    public popupMail: Popup;
 
     // List View binding properties
     public messageDataSource: { [key: string]: Object }[] = messageDataSourceNew;
@@ -278,7 +279,6 @@ export class DataService {
                 this.acSearchMobile.value = '';
             } else if (args.item.prefixIcon === 'ej-icon-Copy tb-icons') {
                 if (!this.dlgReplyAllWindow.content) {
-                    this.dlgReplyAllWindow.content = document.getElementById('reading-pane-popup');
                     this.dlgReplyAllWindow.refresh();
                 }
                 this.dlgReplyAllWindow.show();
@@ -288,6 +288,9 @@ export class DataService {
     }
 
     public sendClick(): void {
+        if (!this.dlgNewWindow) {
+           this.dlgNewWindow = (<any>document.getElementById('newMailSeparateDialog'))['ej2_instances'][0];
+        }
         if (this.dlgNewWindow.visible || this.dlgReplyAllWindow.visible) {
             this.dlgSentMailNew.show();
         } else {
@@ -357,6 +360,9 @@ export class DataService {
         let element: HTMLElement = <HTMLElement>document.querySelector('#popupMailId');
         element.onmouseenter = this.popupMouseEnter.bind(this);
         element.onmouseleave = this.popupMouseLeave.bind(this);
+        if (!this.popupMail) {
+            this.popupMail= (<any>element)["ej2_instances"][0];
+        }
         if (window.innerWidth > 605) {
             this.popupMail.show();
         } else {

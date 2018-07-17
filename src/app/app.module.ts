@@ -5,7 +5,7 @@ import { TreeViewModule, ToolbarModule, AccordionModule, ContextMenuModule } fro
 import { ListViewModule } from '@syncfusion/ej2-ng-lists';
 import { ButtonModule } from '@syncfusion/ej2-ng-buttons';
 import { AutoCompleteModule, DropDownListModule, MultiSelectModule } from '@syncfusion/ej2-ng-dropdowns';
-import { DialogModule, PopupModule, TooltipModule } from '@syncfusion/ej2-ng-popups';
+import { DialogModule, TooltipModule } from '@syncfusion/ej2-ng-popups';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -51,7 +51,6 @@ import { DataService } from './data-service';
     DropDownListModule,
     MultiSelectModule,
     DialogModule,
-    PopupModule,
     TooltipModule,
   ],
   providers: [DataService],

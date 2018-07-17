@@ -1,9 +1,10 @@
 import { Component, HostListener, ViewChild, AfterContentInit } from '@angular/core';
 import { ContextMenuComponent, MenuItemModel, MenuEventArgs, BeforeOpenCloseMenuEventArgs } from '@syncfusion/ej2-ng-navigations';
 import { SortOrder } from '@syncfusion/ej2-ng-lists';
-import { DialogComponent, PopupComponent } from '@syncfusion/ej2-ng-popups';
+import { DialogComponent } from '@syncfusion/ej2-ng-popups';
 import { ReadingPaneComponent } from './readingpane/readingpane.component';
 import { DataService } from '../data-service';
+import { Popup, Dialog } from '@syncfusion/ej2-popups';
 
 @Component({
     selector: 'content-area-section',
@@ -27,18 +28,16 @@ export class ContentAreaComponent implements AfterContentInit {
     public dlgDiscard: DialogComponent;
     @ViewChild('discardNewWindow')
     public dlgDiscardNew: DialogComponent;
-    @ViewChild('newMailSeparateDialog')
-    public dlgReplyAllWindow: DialogComponent;
     @ViewChild('replyAllSeparateDialog')
-    public dlgNewWindow: DialogComponent;
+    public dlgReplyAllWindow: DialogComponent;
+    public dlgNewWindow: Dialog;
     @ViewChild('favoriteDialog')
     public dlgFavorite: DialogComponent;
     @ViewChild('deleteDialog')
     public dlgDelete: DialogComponent;
-    @ViewChild('popupMail')
-    public popupMail: PopupComponent;
     @ViewChild('readingPaneElement')
     public readingPaneComponent: ReadingPaneComponent;
+    public popupMail: Popup;
 
     // Tree ContextMenu binding properties
     public treeMenuItems: MenuItemModel[] = [
@@ -92,12 +91,6 @@ export class ContentAreaComponent implements AfterContentInit {
             click: this.btnDeleteCancelClick.bind(this), buttonModel: { content: 'No', cssClass: 'e-flat' }
         }
     ];
-
-    // Popup binding properties
-    public popupPosition: { [key: string]: Object } = { X: 'right', Y: 'top' };
-    public popupRelativeElement: string = '#content-area';
-    public popupOffsetX: number = -5;
-    public popupOffsetY: number = 5;
 
     //Class Members
     public modalDialog: boolean = true;
@@ -435,7 +428,6 @@ export class ContentAreaComponent implements AfterContentInit {
             let target: HTMLElement = evt.target as HTMLElement;
             if (target.className.indexOf('template-container') !== -1) {
                 if (!this.dlgReplyAllWindow.content) {
-                    this.dlgReplyAllWindow.content = document.getElementById('reading-pane-popup');
                     this.dlgReplyAllWindow.refresh();
                 }
                 this.dlgReplyAllWindow.show();
@@ -445,6 +437,9 @@ export class ContentAreaComponent implements AfterContentInit {
     }
 
     public documentClick(evt: MouseEvent): void {
+        if (!this.data.readingPaneComponent) {
+             this.data.readingPaneComponent= this.readingPaneComponent;
+        }
         let key: string = 'parentID';
         if (evt.target instanceof HTMLElement) {
             let target: HTMLElement = evt.target as HTMLElement;
@@ -538,7 +533,6 @@ export class ContentAreaComponent implements AfterContentInit {
                 let key: string = 'ContactID';
                 this.data.grpListObj.selectItem({ id: this.data.messageDataSource[0][key].toString() });
                 if (!this.dlgReplyAllWindow.content) {
-                    this.dlgReplyAllWindow.content = document.getElementById('reading-pane-popup');
                     this.dlgReplyAllWindow.refresh();
                 }
                 this.dlgReplyAllWindow.show();
@@ -556,5 +550,22 @@ export class ContentAreaComponent implements AfterContentInit {
         this.data.dlgSentMailNew = this.dlgSentMailNew;
         this.data.dlgSentMail = this.dlgSentMail;
         this.data.readingPaneComponent = this.readingPaneComponent;
+        this.popupMail = new Popup(document.getElementById('popupMailId'),{
+            position: {X: 'right', Y: 'top'},
+            relateTo: '#content-area',
+            offsetX: -5,
+            offsetY: 5,
+        });
+         this.dlgNewWindow= new Dialog({
+            width: '80%',
+            height: '93%',
+            isModal: this.nonModalDialog,
+            target: this.dlgTarget,
+            animationSettings: this.dlgAnimationSettings,
+            closeOnEscape: true,
+            allowDragging: true,
+            visible: this.dialogVisibility
+        });
+        this.dlgNewWindow.appendTo('#newMailSeparateDialog')
     }
 }

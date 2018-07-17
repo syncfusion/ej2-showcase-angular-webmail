@@ -19,9 +19,6 @@
             <div id='accContent'>
             </div>
         </div>
-        <div id='reading-pane-popup'>
-            <readingpane-section #readingPaneElement></readingpane-section>
-        </div>
     </div>
     <div class="overlay-element" (click)="hideSideBar()">
     </div>
@@ -52,11 +49,14 @@
 <ejs-dialog id="discardDialog" #discardDialog width="335px" header="Discard Message" [content]='discardDlgContent' closeOnEscape='true'
     [target]='dlgTarget' [isModal]='modalDialog' [animationSettings]='dlgAnimationSettings' [visible]='dialogVisibility' >
 </ejs-dialog>
-<ejs-dialog id="newMailSeparateDialog" #newMailSeparateDialog width="80%" height="93%" [target]='dlgTarget' [animationSettings]='dlgAnimationSettings'
-    closeOnEscape='true' [isModal]='nonModalDialog' [visible]='dialogVisibility' allowDragging='true'>
-</ejs-dialog>
+<div id="newMailSeparateDialog"></div>
 <ejs-dialog id="replyAllSeparateDialog" #replyAllSeparateDialog width="80%" height="93%" [target]='dlgTarget' [animationSettings]='dlgAnimationSettings'
     closeOnEscape='true' [isModal]='nonModalDialog' [visible]='dialogVisibility'>
+    <ng-template #content>
+          <div id='reading-pane-popup'>
+            <readingpane-section #readingPaneElement></readingpane-section>
+        </div>
+     </ng-template>
 </ejs-dialog>
 <ejs-dialog id="sentMailNewWindow" #sentMailNewWindow width="335px" header="Mail Sent" content='<div class="dlg-content-style"><span>Your mail has been sent successfully.</span></div>'
     [target]='dlgTarget' [isModal]='nonModalDialog' [animationSettings]='dlgAnimationSettings' closeOnEscape='true'
@@ -67,7 +67,7 @@
     [visible]='dialogVisibility'>
 </ejs-dialog>
 
-<ejs-popup id="popupMailId" [position]='popupPosition' [relateTo]='popupRelativeElement' [offsetX]='popupOffsetX' [offsetY]='popupOffsetY' style="position:absolute;width:320px" #popupMail>
+<div id="popupMailId" style="position:absolute;width:320px">
     <div id='popupContent' style="padding:10px 10px; width: 320px; height: 85px; background-color:#F2F2F2; color:#252525">
         <div style="float:left;pointer-events: none;">
             <div>
@@ -89,7 +89,7 @@
             <span class="e-btn-icon ej-icon-Close"></span>
         </div>
     </div>
-</ejs-popup>
+</div>
 
 <div id='persontooltip' style="display: none;">
     <div id="persontooltipcontent" style="width: 304px;height: 91px;">
