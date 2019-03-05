@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { TreeViewComponent, ToolbarComponent, AccordionComponent, ContextMenuComponent,
-    ClickEventArgs } from '@syncfusion/ej2-ng-navigations';
-import { ListViewComponent } from '@syncfusion/ej2-ng-lists';
-import { AutoCompleteComponent, ChangeEventArgs } from '@syncfusion/ej2-ng-dropdowns';
-import { DialogComponent } from '@syncfusion/ej2-ng-popups';
+    ClickEventArgs } from '@syncfusion/ej2-angular-navigations';
+import { ListViewComponent } from '@syncfusion/ej2-angular-lists';
+import { AutoCompleteComponent, ChangeEventArgs } from '@syncfusion/ej2-angular-dropdowns';
+import { DialogComponent } from '@syncfusion/ej2-angular-popups';
 import { Popup, Dialog } from '@syncfusion/ej2-popups';
 import { NewMailComponent } from './content-area/content/content-pane/newmail/newmail.component';
 import { ReadingPaneComponent } from './content-area/readingpane/readingpane.component';
@@ -30,7 +30,7 @@ export class DataService {
     public searchFields: Object = { text: 'MailId', value: 'MailId' };
 
     public grpListObj: ListViewComponent;
-    public filterContextMenu: ContextMenuComponent; 
+    public filterContextMenu: any;
     public newMailComponent: NewMailComponent;
     public acrdnObj: AccordionComponent;
     public dlgNewWindow: Dialog;
@@ -247,7 +247,7 @@ export class DataService {
                 let selectedMessage: { [key: string]: Object } = this.getSelectedMessage();
                 this.messageDataSource.splice(this.messageDataSource.indexOf(selectedMessage), 1);
                 let key: string = 'ContactID';
-                this.grpListObj.removeItem({ id: selectedMessage[key].toString() });
+                this.grpListObj.removeItem({ id: selectedMessage[key].toString(), text: selectedMessage['text'].toString() });
                 if (args.item.prefixIcon === 'ej-icon-Delete' && window.innerWidth < 605) {
                     let contentElement: Element = document.getElementsByClassName('row content')[0];
                     contentElement.className = contentElement.className.replace('show-reading-pane', 'show-message-pane');
@@ -336,7 +336,7 @@ export class DataService {
 
     public showPopup1(): void {
         let newMessageData: { [key: string]: Object } = this.cloneObject(this.messageDataSource[Math.floor(Math.random() * (50 - 3) + 2)]);
-        let key: string = 'ContactName';
+        let key: string = 'text';
         document.getElementById('popup-contact').innerHTML = newMessageData[key].toString();
         key = 'ContactTitle';
         document.getElementById('popup-subject').innerHTML = newMessageData[key].toString();

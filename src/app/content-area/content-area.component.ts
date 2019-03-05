@@ -1,7 +1,7 @@
 import { Component, HostListener, ViewChild, AfterContentInit } from '@angular/core';
-import { ContextMenuComponent, MenuItemModel, MenuEventArgs, BeforeOpenCloseMenuEventArgs } from '@syncfusion/ej2-ng-navigations';
-import { SortOrder } from '@syncfusion/ej2-ng-lists';
-import { DialogComponent } from '@syncfusion/ej2-ng-popups';
+import { ContextMenuComponent, MenuItemModel, MenuEventArgs, BeforeOpenCloseMenuEventArgs } from '@syncfusion/ej2-angular-navigations';
+import { SortOrder } from '@syncfusion/ej2-angular-lists';
+import { DialogComponent } from '@syncfusion/ej2-angular-popups';
 import { ReadingPaneComponent } from './readingpane/readingpane.component';
 import { DataService } from '../data-service';
 import { Popup, Dialog } from '@syncfusion/ej2-popups';
@@ -17,9 +17,9 @@ export class ContentAreaComponent implements AfterContentInit {
     }
 
     @ViewChild('treeContextMenu')
-    private treeContextMenu: ContextMenuComponent;
+    private treeContextMenu: any;
     @ViewChild('filterContextMenu')
-    private filterContextMenu: ContextMenuComponent;
+    private filterContextMenu: any;
     @ViewChild('sentMailDialog')
     public dlgSentMail: DialogComponent;
     @ViewChild('sentMailNewWindow')
@@ -462,7 +462,7 @@ export class ContentAreaComponent implements AfterContentInit {
                         if (target.className.indexOf('ej-icon-Delete') !== -1) {
                             this.data.messageDataSource.splice(this.data.messageDataSource.indexOf(selectedMessage), 1);
                             key = 'ContactID';
-                            this.data.grpListObj.removeItem({ id: selectedMessage[key].toString() });
+                            this.data.grpListObj.removeItem({ id: selectedMessage[key].toString(), text: selectedMessage['text'].toString() });
                         } else if (target.className.indexOf('ej-icon-Flag_1') !== -1) {
                             this.data.flagListItem(target, selectedMessage);
                         } else if (target.className.indexOf('ej-icon-Mark-as-read') !== -1 && !this.data.isItemClick) {
@@ -516,7 +516,7 @@ export class ContentAreaComponent implements AfterContentInit {
                 let selectedMessage: { [key: string]: Object } = this.data.getSelectedMessage();
                 this.data.messageDataSource.splice(this.data.messageDataSource.indexOf(selectedMessage), 1);
                 let key: string = 'ContactID';
-                this.data.grpListObj.removeItem({ id: selectedMessage[key].toString() });
+                this.data.grpListObj.removeItem({ id: selectedMessage[key].toString(), text: selectedMessage['text'].toString() });
                 this.data.showEmptyMessage();
                 this.dlgReplyAllWindow.hide();
             } else if (this.readingPaneComponent.selectedRPToolbarItem === 'ClosePopup') {

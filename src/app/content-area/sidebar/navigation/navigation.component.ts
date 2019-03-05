@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
-import { TreeViewComponent, NodeSelectEventArgs } from '@syncfusion/ej2-ng-navigations';
+import { TreeViewComponent, NodeSelectEventArgs } from '@syncfusion/ej2-angular-navigations';
 import { DataService } from '../../../data-service';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { ToolbarComponent, AccordionComponent, ClickEventArgs } from '@syncfusion/ej2-ng-navigations';
-import { MultiSelectComponent, SelectEventArgs as DropDownSelectEventArgs, FilteringEventArgs } from '@syncfusion/ej2-ng-dropdowns';
+import { ToolbarComponent, AccordionComponent, ClickEventArgs } from '@syncfusion/ej2-angular-navigations';
+import { MultiSelectComponent, SelectEventArgs as DropDownSelectEventArgs, FilteringEventArgs } from '@syncfusion/ej2-angular-dropdowns';
 import { Query } from '@syncfusion/ej2-data';
 import { getContacts } from '../../data/datasource';
 
@@ -51,7 +51,7 @@ export class ReadingPaneComponent implements AfterViewInit {
 
     public onFiltering(e: FilteringEventArgs): void {
         let query: Query = new Query();
-        query = (e.text !== '') ? query.where('ContactName', 'startswith', e.text, true) : query;
+        query = (e.text !== '') ? query.where('text', 'startswith', e.text, true) : query;
         e.updateData(this.contactsList, query);
     }
 
@@ -129,7 +129,7 @@ export class ReadingPaneComponent implements AfterViewInit {
         key = 'Image';
         (headerTitle.getElementsByClassName('logo logo-style2')[0] as HTMLElement).style.background =
             'url(' + this.selectedMessage[key].toString().replace('assets/images/images/', 'assets/images/large/') + ')  no-repeat 50% 50%';
-        key = 'ContactName';
+        key = 'text';
         document.getElementById('rp-sub').innerHTML = this.selectedMessage[key].toString();
         key = 'Date';
         let dateString: string = this.selectedMessage[key].toString();

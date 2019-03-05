@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { ChangeEventArgs } from '@syncfusion/ej2-ng-dropdowns';
+import { ChangeEventArgs } from '@syncfusion/ej2-angular-dropdowns';
 import { getContacts, userName, userMail } from '../../../data/datasource';
 import { DataService } from '../../../data-service';
 
