@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { ToolbarComponent, ClickEventArgs } from '@syncfusion/ej2-ng-navigations';
-import { MultiSelectComponent, FilteringEventArgs } from '@syncfusion/ej2-ng-dropdowns';
+import { ToolbarComponent, ClickEventArgs } from '@syncfusion/ej2-angular-navigations';
+import { MultiSelectComponent, FilteringEventArgs } from '@syncfusion/ej2-angular-dropdowns';
 import { Query } from '@syncfusion/ej2-data';
 import { getContacts } from '../../../../data/datasource';
 import { DataService } from '../../../../data-service';
@@ -66,7 +66,7 @@ export class NewMailComponent {
 
     public onFiltering(e: FilteringEventArgs): void {
         let query: Query = new Query();
-        query = (e.text !== '') ? query.where('ContactName', 'startswith', e.text, true) : query;
+        query = (e.text !== '') ? query.where('text', 'startswith', e.text, true) : query;
         e.updateData(this.contactsList, query);
     }
 

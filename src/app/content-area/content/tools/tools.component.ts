@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
-import { ToolbarComponent, ClickEventArgs } from '@syncfusion/ej2-ng-navigations';
-import { AutoCompleteComponent, ChangeEventArgs, SelectEventArgs as DropDownSelectEventArgs } from '@syncfusion/ej2-ng-dropdowns';
+import { ToolbarComponent, ClickEventArgs } from '@syncfusion/ej2-angular-navigations';
+import { AutoCompleteComponent, ChangeEventArgs, SelectEventArgs as DropDownSelectEventArgs } from '@syncfusion/ej2-angular-dropdowns';
 import { getContacts } from '../../../data/datasource';
 import { DataService } from '../../../data-service';
 

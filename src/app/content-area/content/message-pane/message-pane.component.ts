@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
-import { ListViewComponent, SelectEventArgs } from '@syncfusion/ej2-ng-lists';
+import { ListViewComponent, SelectEventArgs } from '@syncfusion/ej2-angular-lists';
 import { DataService } from '../../../data-service';
 
 @Component({
@@ -21,12 +21,12 @@ export class MessagePaneComponent implements OnInit {
     // List View binding properties
     public messageDataSource: { [key: string]: Object }[] = null;
     public listTemplate: string = this.getListTemplate();
-    public listviewFields: {[key: string]: Object} = { id: 'ContactID' };
+    public listviewFields: {[key: string]: Object} = { id: 'ContactID', text: 'text' };
 
     private getListTemplate(): string {
         return '<div class="template-container ${ReadStyle}-parent">' +
             '<div style="height:30px; pointer-events:none;">' +
-                '<div class="sender-style" style="float:left; margin-top: 2px">${ContactName}</div>' +
+                '<div class="sender-style" style="float:left; margin-top: 2px">${text}</div>' +
                 '<div style="right:25px; position: absolute; margin-top: 2px; pointer-events:all;">' +
                     '<button id="btnListDelete" title="Delete" class="listview-btn">' +
                         '<span class="e-btn-icon ej-icon-Delete"></span>' +
@@ -78,7 +78,7 @@ export class MessagePaneComponent implements OnInit {
         key = 'Image';
         (headerTitle.getElementsByClassName('logo logo-style2')[0] as HTMLElement).style.background =
             'url(' + data[key].toString().replace('assets/images/images/', 'assets/images/large/') + ')  no-repeat 50% 50%';
-        key = 'ContactName';
+        key = 'text';
         document.getElementById('sub').innerHTML = data[key].toString();
         key = 'Date';
         let dateString: string = data[key].toString();

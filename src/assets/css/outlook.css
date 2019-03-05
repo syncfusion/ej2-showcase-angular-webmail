@@ -576,11 +576,6 @@ html, body {
     text-indent: 0px;
 }
 
-#toolbar_align .e-toolbar-left .e-toolbar-item .e-tbar-btn, #toolbar_newmail .e-toolbar-item .e-tbar-btn,
-#rp-toolbar_align .e-toolbar-left .e-toolbar-item .e-tbar-btn, #rp-toolbar_newmail .e-toolbar-item .e-tbar-btn {
-    display: table !important;
-}
-
 #toolbar_align .e-toolbar-left .e-toolbar-item .e-tbar-btn > span, #toolbar_align .e-toolbar-left .e-toolbar-item .e-tbar-btn > div,
 #toolbar_newmail .e-toolbar-left .e-toolbar-item .e-tbar-btn > span, #toolbar_newmail .e-toolbar-left .e-toolbar-item .e-tbar-btn > div,
 #rp-toolbar_align .e-toolbar-left .e-toolbar-item .e-tbar-btn > span, #rp-toolbar_align .e-toolbar-left .e-toolbar-item .e-tbar-btn > div,

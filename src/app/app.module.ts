@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { TreeViewModule, ToolbarModule, AccordionModule, ContextMenuModule } from '@syncfusion/ej2-ng-navigations';
-import { ListViewModule } from '@syncfusion/ej2-ng-lists';
-import { ButtonModule } from '@syncfusion/ej2-ng-buttons';
-import { AutoCompleteModule, DropDownListModule, MultiSelectModule } from '@syncfusion/ej2-ng-dropdowns';
-import { DialogModule, TooltipModule } from '@syncfusion/ej2-ng-popups';
+import { TreeViewModule, ToolbarModule, AccordionModule, ContextMenuModule } from '@syncfusion/ej2-angular-navigations';
+import { ListViewModule } from '@syncfusion/ej2-angular-lists';
+import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
+import { AutoCompleteModule, DropDownListModule, MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
+import { DialogModule, TooltipModule } from '@syncfusion/ej2-angular-popups';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';

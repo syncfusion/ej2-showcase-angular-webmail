@@ -25,7 +25,7 @@
                 </e-item>
                 <e-item cssClass='tb-item-more' tooltipText='More actions' >
                     <ng-template #template>
-                        <ejs-dropdownlist id='rp-moreList' #rpMoreItemList [dataSource]='moreList' (change)='moreItemSelect($event)' 
+                        <ejs-dropdownlist id='rp-moreList' #rpMoreItemList [dataSource]='moreList'  
                             value="Mark as read" [fields]='dropdownField' popupHeight="150px" popupWidth="150px">
                             <ng-template #valueTemplate let-data>
                                 <div class="tb-dropdowns" style ="font-size: 16px;margin-top: -2px;"><span class="e-btn-icon e-icons ej-icon-More"></span></div>
@@ -74,7 +74,7 @@
                                     <div class="multiselect-template parent-div">
                                         <img class="contacts-item-image-style" src="{{data.Image}}" alt="employee"/>
                                         <div class="contacts-item-text-style"> 
-                                            <div>{{data.ContactName}}</div> 
+                                            <div>{{data.text}}</div> 
                                         </div>
                                         <div class="contacts-item-subtext-style">{{data.MailId}}</div>
                                     </div>
@@ -96,7 +96,7 @@
                                     <div class="multiselect-template parent-div">
                                         <img class="contacts-item-image-style" src="{{data.Image}}" alt="employee"/>
                                         <div class="contacts-item-text-style"> 
-                                            <div>{{data.ContactName}}</div> 
+                                            <div>{{data.text}}</div> 
                                         </div>
                                         <div class="contacts-item-subtext-style">{{data.MailId}}</div>
                                     </div>
