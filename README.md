@@ -1,27 +1,11 @@
 # Essential JS 2 for Angular - Webmail
 
-This Webmail demo application showcases the usage of several Essential JS 2 components in a real world application scenario. This demo explores a mailbox user interface which was inspired by the Outlook Office 365 application.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5 and EJ2 components.
 
-## Deployment
+## Development server
 
-### Install
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-To install all dependent packages, use the below command
+## Build
 
-```
-npm install
-```
-
-### Run
-
-To run the sample, use the below command
-
-```
-ng serve
-```
-
-## Demo
-
-#### <a href="https://ej2.syncfusion.com/showcase/angular/webmail/" target="_blank">https://ej2.syncfusion.com/showcase/angular/webmail/</a>
-
-Check all the showcase samples from <a href="https://ej2.syncfusion.com/home/angular.html" target="_blank">here</a>.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.

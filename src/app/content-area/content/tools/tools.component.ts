@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef , Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
 import { ToolbarComponent, ClickEventArgs } from '@syncfusion/ej2-angular-navigations';
 import { AutoCompleteComponent, ChangeEventArgs, SelectEventArgs as DropDownSelectEventArgs } from '@syncfusion/ej2-angular-dropdowns';
 import { getContacts } from '../../../data/datasource';
@@ -13,7 +13,7 @@ import { DataService } from '../../../data-service';
 export class ToolsComponent implements OnInit {
 
     /** Configurations for the Tools page */
-    constructor(private _data: DataService) {
+    constructor(private _data: DataService, private chgRef: ChangeDetectorRef) {
         this.contactsList = getContacts();
     }    
         
@@ -108,5 +108,9 @@ export class ToolsComponent implements OnInit {
     public ngAfterViewInit(): void {
         this._data.toolbarMobile = this.toolbarMobile;
         this._data.acSearchMobile = this.acSearchMobile;
+    }
+
+    public DDLCreated(): void {
+        this.chgRef.detectChanges();
     }
 }
