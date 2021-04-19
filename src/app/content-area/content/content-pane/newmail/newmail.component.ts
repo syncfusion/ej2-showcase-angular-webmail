@@ -51,10 +51,10 @@ export class NewMailComponent {
 
     public clearMailForm(): void {
         if (this.autoCCList.value) {
-            this.autoCCList.value = [] as [string];
+            this.autoCCList.value = [];
         }
         if (this.autoToList.value) {
-            this.autoToList.value = [] as [string];
+            this.autoToList.value = [];
         }
         (document.getElementById('txtSubject') as HTMLInputElement).value = '';
         document.getElementById('mailContentMessage').innerHTML = '';

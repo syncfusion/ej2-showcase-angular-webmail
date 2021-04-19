@@ -101,10 +101,10 @@ export class ReadingPaneComponent implements AfterViewInit {
 
     public clearMailForm(): void {
         if (this.autoCCList.value) {
-            this.autoCCList.value = [] as [string];
+            this.autoCCList.value = [];
         }
         if (this.autoToList.value) {
-            this.autoToList.value = [] as [string];
+            this.autoToList.value = [];
         }
         (document.getElementById('rp-txtSubject') as HTMLInputElement).value = '';
         document.getElementById('rp-mailContentMessage').innerHTML = '';
