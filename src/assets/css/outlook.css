@@ -755,6 +755,7 @@ html, body {
    font-family: "SegoeUI-SemiLight-final","Segoe UI SemiLight","Segoe UI WPC Semilight","Segoe UI",Segoe,Tahoma,Helvetica,Arial,sans-serif;
    font-size: 22px;
    color: white;
+   margin: 0px;
 }
 
 /* Defining style for Reading Pane Content */

@@ -231,3 +231,7 @@
   height: 85px;
   line-height: 1.42857143;
 }
+
+.e-treeview .e-list-item div.e-icons::before {
+  content: "";
+}

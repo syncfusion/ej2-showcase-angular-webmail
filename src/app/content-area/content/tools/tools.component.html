@@ -46,7 +46,7 @@
                 <ng-template #template>
                     <ejs-dropdownlist id='categoryList' #categoriesList [dataSource]='categoryList'
                         value="Blue category" [fields]='dropdownField' popupHeight="250px" popupWidth="230px" 
-                        width="100px">
+                        width="100px" (created)='DDLCreated($event)'>
                         <ng-template #itemTemplate let-data="">
                             <div class="e-list" style="padding:0px 15px">
                                 <div style="width: 20px;float:left;top: 8px;position: absolute;">
