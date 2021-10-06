@@ -6,13 +6,15 @@
                 <e-item  prefixIcon ='ej-icon-Attach tb-icons' text='Attach' tooltipText='Attach' ></e-item>
                 <e-item  text ='Discard' ></e-item>
                 <e-item  cssClass='tb-item-more tb-item-more-mail' tooltipText='More actions'>
-                    <ng-template #template>
-                        <ejs-dropdownlist id='moreList2' #moreItemList2 [dataSource]='moreMailList' 
-                            value="Show From" [fields]='dropdownField' popupHeight="150px" popupWidth="150px">
-                            <ng-template #valueTemplate let-data>
-                                <div class="tb-dropdowns" style ="font-size: 16px;margin-top: -2px;"><span class="e-btn-icon e-icons ej-icon-More"></span></div>
-                            </ng-template>
-                        </ejs-dropdownlist>
+                   <ng-template #template>
+                        <div>
+                            <ejs-dropdownlist id='moreList2' #moreItemList2 [dataSource]='moreMailList' 
+                                value="Show From" [fields]='dropdownField' popupHeight="150px" popupWidth="150px">
+                                <ng-template #valueTemplate let-data>
+                                    <div class="tb-dropdowns" style ="font-size: 16px;margin-top: -2px;"><span class="e-btn-icon e-icons ej-icon-More"></span></div>
+                                </ng-template>
+                            </ejs-dropdownlist>
+                        </div>
                     </ng-template>
                 </e-item>
                 <e-item  prefixIcon='ej-icon-Copy tb-icons' tooltipText='Edit in a separate window' 

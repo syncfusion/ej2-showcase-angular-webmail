@@ -5,18 +5,20 @@
             <e-items>
                 <e-item prefixIcon='ej-icon-Reply-All tb-icons' cssClass='tb-item-replyAll' tooltipText='Reply All'>
                     <ng-template #template>
-                        <ejs-dropdownlist id='rp-replyAllList' #rpReplyAllList [dataSource]='replyList' (change)='replyAllSelect($event)' value="Reply All"
-                            [fields]='dropdownField' popupHeight="150px" popupWidth="150px" width="115px">
-                            <ng-template #valueTemplate let-data="">
-                                <div>
-                                    <div class="float-left" style="margin-top: 1px;">
-                                        <span style="font-weight: bold" class="e-btn-icon ej-icon-Reply-All tb-icons e-icons tb-icon-rply-all">
-                                        </span>
+                        <div>
+                            <ejs-dropdownlist id='rp-replyAllList' #rpReplyAllList [dataSource]='replyList' (change)='replyAllSelect($event)' value="Reply All"
+                                [fields]='dropdownField' popupHeight="150px" popupWidth="150px" width="115px">
+                                <ng-template #valueTemplate let-data="">
+                                    <div>
+                                        <div class="float-left" style="margin-top: 1px;">
+                                            <span style="font-weight: bold" class="e-btn-icon ej-icon-Reply-All tb-icons e-icons tb-icon-rply-all">
+                                            </span>
+                                        </div>
+                                        <div class="tb-dropdowns float-left"> Reply All </div>
                                     </div>
-                                    <div class="tb-dropdowns float-left"> Reply All </div>
-                                </div>
-                            </ng-template>
-                        </ejs-dropdownlist>
+                                </ng-template>
+                            </ejs-dropdownlist>
+                        </div>
                     </ng-template>
                 </e-item>
                 <e-item prefixIcon='ej-icon-Delete tb-icons' text='Delete' tooltipText= 'Delete'>
@@ -25,12 +27,14 @@
                 </e-item>
                 <e-item cssClass='tb-item-more' tooltipText='More actions' >
                     <ng-template #template>
-                        <ejs-dropdownlist id='rp-moreList' #rpMoreItemList [dataSource]='moreList'  
-                            value="Mark as read" [fields]='dropdownField' popupHeight="150px" popupWidth="150px">
-                            <ng-template #valueTemplate let-data>
-                                <div class="tb-dropdowns" style ="font-size: 16px;margin-top: -2px;"><span class="e-btn-icon e-icons ej-icon-More"></span></div>
-                            </ng-template>
-                        </ejs-dropdownlist>
+                        <div>
+                            <ejs-dropdownlist id='rp-moreList' #rpMoreItemList [dataSource]='moreList'  
+                                value="Mark as read" [fields]='dropdownField' popupHeight="150px" popupWidth="150px">
+                                <ng-template #valueTemplate let-data>
+                                    <div class="tb-dropdowns" style ="font-size: 16px;margin-top: -2px;"><span class="e-btn-icon e-icons ej-icon-More"></span></div>
+                                </ng-template>
+                            </ejs-dropdownlist>
+                        </div>
                     </ng-template>
                 </e-item>
                 <e-item prefixIcon='ej-icon-Close tb-icons' align='right' tooltipText= 'Close' cssClass='rp-tp-item-Close'>
@@ -45,12 +49,14 @@
                 <e-item  text ='Discard' ></e-item>
                 <e-item  cssClass='tb-item-more tb-item-more-mail' tooltipText='More actions'>
                     <ng-template #template>
-                        <ejs-dropdownlist id='rp-moreList2' #rpMoreItemList2 [dataSource]='moreMailList' 
-                            value="Show From" [fields]='dropdownField' popupHeight="150px" popupWidth="150px">
-                            <ng-template #valueTemplate let-data>
-                                <div class="tb-dropdowns" style ="font-size: 16px;margin-top: -2px;"><span class="e-btn-icon e-icons ej-icon-More"></span></div>
-                            </ng-template>
-                        </ejs-dropdownlist>
+                        <div>
+                            <ejs-dropdownlist id='rp-moreList2' #rpMoreItemList2 [dataSource]='moreMailList' 
+                                value="Show From" [fields]='dropdownField' popupHeight="150px" popupWidth="150px">
+                                <ng-template #valueTemplate let-data>
+                                    <div class="tb-dropdowns" style ="font-size: 16px;margin-top: -2px;"><span class="e-btn-icon e-icons ej-icon-More"></span></div>
+                                </ng-template>
+                            </ejs-dropdownlist>
+                        </div>
                     </ng-template>
                 </e-item>
                 <e-item  prefixIcon='ej-icon-Close tb-icons' tooltipText='Close' align='right' 
