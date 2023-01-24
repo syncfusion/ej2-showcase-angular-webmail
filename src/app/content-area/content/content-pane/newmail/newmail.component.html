@@ -77,9 +77,10 @@
     </div>
     <div>
         <div id='mailContentMessage' class="customScrollBar" contenteditable="true"></div>
+        <ejs-mention [dataSource]='contactsList' [target]='mentionTarget' [fields]='dropdownField'></ejs-mention>
     </div>
     <div class='mail-text-edit-tb-parent'>
-        <ejs-toolbar id='new_email_toolbar' #toolbarMailOption height='100%' overflowMode='Popup'>  
+        <ejs-toolbar id='new_email_toolbar' #toolbarMailOption height='100%' overflowMode='Scrollable'>  
             <e-items>
                 <e-item prefixIcon= 'ej-icon-Font tb-icons' tooltipText= 'Font' ></e-item>
                 <e-item prefixIcon= 'ej-icon-Font-Size path2 tb-icons' tooltipText= 'Font Size' ></e-item>

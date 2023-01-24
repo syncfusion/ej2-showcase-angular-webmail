@@ -2,7 +2,7 @@
     <div class='row content'>
         <sidebar-section #sidebarSection></sidebar-section>
         <popup-section #popupSection></popup-section>
-        <content-section #contentSection></content-section>
+        <content-section (contentEvent)="bindEvent()" #contentSection></content-section>
         <div id='accodianContent'>
             <div style='height: 100px'>
                 <div class='logo logo-style2' style='float:left'></div>
@@ -19,8 +19,6 @@
             <div id='accContent'>
             </div>
         </div>
-    </div>
-    <div class="overlay-element" (click)="hideSideBar()">
     </div>
 </div>
  

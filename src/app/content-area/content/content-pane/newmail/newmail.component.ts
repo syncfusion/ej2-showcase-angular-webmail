@@ -4,7 +4,6 @@ import { MultiSelectComponent, FilteringEventArgs } from '@syncfusion/ej2-angula
 import { Query } from '@syncfusion/ej2-data';
 import { getContacts } from '../../../../data/datasource';
 import { DataService } from '../../../../data-service';
-
 @Component({
     selector: 'newmail-section',
     templateUrl: 'newmail.component.html'
@@ -34,6 +33,7 @@ export class NewMailComponent {
     public multiSelectWidth: string = 'calc(100% - 60px)';
     public isNewWindow: boolean = true;
     public selectedToolbarItem: string = '';
+    public mentionTarget: string = "#mailContentMessage";
 
     public toolbarNewMailClick(args: ClickEventArgs): void {
         if (args.item) {

@@ -29,23 +29,6 @@ html, body {
 
 /* Top Header Customization */
 
-.header {
-    position: relative;
-    display: block;
-    z-index: 11;
-    background: #222;
-}
-
-    .header.navbar {
-        border-width: 0;
-        border-radius: 0;
-        margin-bottom: 0;
-    }
-
-    .header.navbar.head-pane-hide .header-right-pane {
-        display: none;
-    }
-
     .header-right-pane {
         display: table-cell; 
         text-align: right; 
@@ -117,10 +100,11 @@ html, body {
 
 .content-wrapper {
     margin: 0;
-    left: 280px;
+    left: 0px;
     height: 100%;
     position:absolute;
-    width:calc(100% - 280px);
+    width:100%;
+    overflow: hidden;
 }
     .content-wrapper > .content {
         z-index: 7;
@@ -140,20 +124,20 @@ html, body {
 }
 
 .message-pane {
-    width:374px;
+    /* width:374px; */
     background-color:#fff;
-    height:calc(100% - 40px);
+    height:100%;
     left: 0px;
-    position: absolute;
+    /* position: absolute; */
     border-right: 1px solid #e5e3e3;
 }
 
 .reading-pane {
-    width:calc(100% - 374px);
+    width:100%;
     background-color:#fff;
-    height:calc(100% - 40px);
-    left:374px; 
-    position:absolute;
+    height:100%;
+    /* left:374px;  */
+    /* position:absolute; */
     overflow: auto;
 }
 
@@ -469,7 +453,7 @@ html, body {
 }
 
 #new_email_toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-#rp-new_email_toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child, {
+#rp-new_email_toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
     margin-left: 0px;
 }
 
@@ -1411,7 +1395,7 @@ html, body {
 
 @media screen and (min-width:1200px) {
     .row.content.show-header-content .content-wrapper {
-        width:calc(100% - 610px);
+        width: 100%;
     }
 }
 
@@ -1420,8 +1404,7 @@ html, body {
         width:474px;
     }
     .reading-pane {
-        width:calc(100% - 474px);
-        left:474px; 
+        width:100%;
     }
 }
 
@@ -1454,8 +1437,10 @@ html, body {
     #toolbar_mobile {
         display: block;
     }
-    .header.navbar {
-        display: none;
+    /* Animation to hide appbar  */
+    #appbar {
+        animation: hideAppBar 0.5s ease-out;
+        height: 0px;
     }
     .outlook-container {
         height: 100%;
@@ -1501,7 +1486,14 @@ html, body {
     }
     
 }
-
+@keyframes hideAppBar {
+    from {
+        height: 48px;
+    }
+    to {
+        height: 0px;
+    }
+}
 @media screen and (max-width:605px) {
     .row.content.show-message-pane #toolbar_mobile .e-toolbar-item.tb-item-back {
         display: none;
@@ -1671,3 +1663,38 @@ html, body {
 #rp-to {
     font-size: 12px;
 }
+/* Overriding appbar styles to achieve exact appbar alignment*/
+.e-control.e-appbar {
+    padding: 0%;
+}
+#profile-div {
+    display: flex;
+}
+.header-right-pane {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Overriding the default positon to achive exact alignment */
+#reading-pane-div
+{
+    position: relative;
+}
+#message-pane-div
+{
+    position: relative;
+}
+.msg-top-margin {
+    top: 40px;
+    height: calc(100% - 40px);
+}
+/* Overriding splitter styles to remove resize handler Icon  */
+.e-splitter .e-split-bar.e-split-bar-horizontal .e-resize-handler::before {
+    display: none;
+}
+/* Overriding splitter styles to make splitBar transparent  */
+#splitBar.e-splitter .e-split-bar.e-split-bar-horizontal,#splitBar.e-splitter .e-split-bar.e-split-bar-horizontal.e-split-bar-hover,
+.e-splitter .e-split-bar.e-split-bar-horizontal.e-split-bar-active {
+    background-color: transparent;
+ }

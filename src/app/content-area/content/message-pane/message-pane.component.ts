@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
+import { SplitterComponent } from '@syncfusion/ej2-angular-layouts';
 import { ListViewComponent, SelectEventArgs } from '@syncfusion/ej2-angular-lists';
 import { DataService } from '../../../data-service';
 
@@ -48,7 +49,6 @@ export class MessagePaneComponent implements OnInit {
             '<div class="descriptionstyle">${Message}</div>' +
         '</div>';
     }
-    
 
     public listViewSelect(args: SelectEventArgs): void {
         this._data.selectedListElement = args.item as HTMLElement;

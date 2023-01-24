@@ -24,6 +24,8 @@ export class NavigationComponent implements OnInit {
     public showPopupOnInit: boolean = false;
 
     public nodeSelected(args: NodeSelectEventArgs): void {
+        this._data.isNewMailClick=false;
+        document.getElementById('message-pane-div').classList.remove("msg-top-margin");
         let key: string = 'id';
         this._data.treeSelectedElement = <HTMLElement>args.node;
         this._data.treeviewSelectedData = this.getTreeData1(args.nodeData[key].toString());

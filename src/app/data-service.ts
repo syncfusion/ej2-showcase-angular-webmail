@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild } from '@angular/core';
 import { TreeViewComponent, ToolbarComponent, AccordionComponent, ContextMenuComponent,
     ClickEventArgs } from '@syncfusion/ej2-angular-navigations';
 import { ListViewComponent } from '@syncfusion/ej2-angular-lists';
@@ -8,7 +8,8 @@ import { Popup, Dialog } from '@syncfusion/ej2-popups';
 import { NewMailComponent } from './content-area/content/content-pane/newmail/newmail.component';
 import { ReadingPaneComponent } from './content-area/readingpane/readingpane.component';
 import { folderData, messageDataSourceNew } from './data/datasource';
-
+import { LeftSidebarComponent } from './content-area/sidebar/sidebar.component';
+import { MessagePaneComponent } from './content-area/content/message-pane/message-pane.component';
 @Injectable()
 
 export class DataService {
@@ -42,7 +43,9 @@ export class DataService {
     public readingPaneComponent: ReadingPaneComponent;
     public treeObj: TreeViewComponent;
     public popupMail: Popup;
-
+    public sidebarSection: LeftSidebarComponent;
+    public messagePane:MessagePaneComponent;
+    public isNewMailClick:boolean=false;
     // List View binding properties
     public messageDataSource: { [key: string]: Object }[] = messageDataSourceNew;
 
@@ -68,7 +71,11 @@ export class DataService {
         this.grpListObj.dataSource = dataSource;
     }
 
-    public showNewMailPopup(option: string): void {
+    public showNewMailPopup(option: string): void {  
+        this.isNewMailClick=true;  
+        if (window.innerWidth > 1090) {
+            document.getElementById("message-pane-div").classList.add("msg-top-margin");
+        }
         let selectedMessage: { [key: string]: Object } = this.getSelectedMessage();
         this.showToolbarItems('none');
         document.getElementById('reading-pane-div').className += ' new-mail';
@@ -78,10 +85,13 @@ export class DataService {
         document.getElementById('mailarea').appendChild(document.getElementById('newmailContent'));
         (document.getElementsByClassName('tb-item-new-mail')[0] as HTMLElement).style.display = 'none';
         (document.getElementsByClassName('tb-item-mark-read')[0] as HTMLElement).style.display = 'none';
+        document.getElementById('toolbar_align').style.display = 'none';
         this.newMailComponent.showMailDialog(option, selectedMessage);
     }
 
     public showSelectedMessage(): void {
+        this.isNewMailClick=false;
+        document.getElementById("message-pane-div").classList.remove("msg-top-margin");
         document.getElementById('emptyMessageDiv').style.display = 'none';
         document.getElementById('mailarea').style.display = 'none';
         document.getElementById('accordian').style.display = '';
@@ -90,6 +100,7 @@ export class DataService {
         readingPane.className = readingPane.className.replace(' new-mail', '');
         (document.getElementsByClassName('tb-item-new-mail')[0] as HTMLElement).style.display = 'inline-flex';
         (document.getElementsByClassName('tb-item-mark-read')[0] as HTMLElement).style.display = 'none';
+        document.getElementById('toolbar_align').style.display = '';
     }
 
     public getSelectedMessage(): { [key: string]: Object } {
@@ -162,6 +173,8 @@ export class DataService {
     }
 
     public showEmptyMessage(): void {
+        this.isNewMailClick=false;
+        document.getElementById("message-pane-div").classList.remove("msg-top-margin");
         document.getElementById('emptyMessageDiv').style.display = '';
         document.getElementById('mailarea').style.display = 'none';
         document.getElementById('accordian').style.display = 'none';
@@ -170,6 +183,7 @@ export class DataService {
         readingPane.className = readingPane.className.replace(' new-mail', '');
         (document.getElementsByClassName('tb-item-new-mail')[0] as HTMLElement).style.display = 'inline-flex';
         (document.getElementsByClassName('tb-item-mark-read')[0] as HTMLElement).style.display = 'inline-flex';
+        document.getElementById('toolbar_align').style.display = '';
     }
 
     public showToolbarItems(displayType: string): void {
@@ -227,10 +241,7 @@ export class DataService {
     public toolbarClick(args: ClickEventArgs): void {
         if (args.item) {
             if (args.item.prefixIcon === 'ej-icon-Menu tb-icons') {
-                let sidebarElement: Element = document.getElementsByClassName('sidebar')[0];
-                sidebarElement.className = 'sidebar show';
-                let overlayElement: Element = document.getElementsByClassName('overlay-element')[0];
-                overlayElement.className = 'overlay-element show1';
+                this.sidebarSection.showSidebar();
                 this.isMenuClick = true;
             } else if (args.item.prefixIcon === 'ej-icon-Back') {
                 let contentElement: Element = document.getElementsByClassName('row content')[0];
@@ -395,13 +406,8 @@ export class DataService {
     }    
 
     public hideSideBar(): void {
-        if (!this.isMenuClick) {
-            let sidebar: Element = document.getElementsByClassName('sidebar')[0];
-            if (sidebar.className.indexOf('sidebar show') !== -1) {
-                sidebar.className = 'sidebar';
-                let overlayElement: Element = document.getElementsByClassName('overlay-element')[0];
-                overlayElement.className = 'overlay-element';
-            }
+        if (!this.isMenuClick && this.sidebarSection && window.innerWidth < 1090) {
+            this.sidebarSection.hideSidebar();
         }
         this.isMenuClick = false;
     }
