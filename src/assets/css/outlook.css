@@ -124,11 +124,9 @@ html, body {
 }
 
 .message-pane {
-    /* width:374px; */
     background-color:#fff;
     height:100%;
     left: 0px;
-    /* position: absolute; */
     border-right: 1px solid #e5e3e3;
 }
 
@@ -136,8 +134,6 @@ html, body {
     width:100%;
     background-color:#fff;
     height:100%;
-    /* left:374px;  */
-    /* position:absolute; */
     overflow: auto;
 }
 

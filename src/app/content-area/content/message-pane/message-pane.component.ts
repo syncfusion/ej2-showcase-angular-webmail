@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
-import { SplitterComponent } from '@syncfusion/ej2-angular-layouts';
 import { ListViewComponent, SelectEventArgs } from '@syncfusion/ej2-angular-lists';
 import { DataService } from '../../../data-service';
 
@@ -12,7 +11,7 @@ import { DataService } from '../../../data-service';
 export class MessagePaneComponent implements OnInit {
 
     /** Configurations for the Message pane page */
-    constructor(private _data: DataService) {
+    constructor(private _data: DataService, private buttonClick: DataService) {
         this.messageDataSource = this._data.messageDataSource;
     }
 
@@ -23,6 +22,10 @@ export class MessagePaneComponent implements OnInit {
     public messageDataSource: { [key: string]: Object }[] = null;
     public listTemplate: string = this.getListTemplate();
     public listviewFields: {[key: string]: Object} = { id: 'ContactID', text: 'text' };
+
+    public clickButton() {
+        this.buttonClick.onFilterClick.emit();
+    }
 
     private getListTemplate(): string {
         return '<div class="template-container ${ReadStyle}-parent">' +

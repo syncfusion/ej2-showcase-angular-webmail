@@ -23,7 +23,6 @@ import { ContentPaneComponent } from './content-area/content/content-pane/conten
 import { NewMailComponent } from './content-area/content/content-pane/newmail/newmail.component';
 
 import { DataService } from './data-service';
-
 @NgModule({
   declarations: [
     AppComponent,

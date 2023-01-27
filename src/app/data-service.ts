@@ -1,4 +1,4 @@
-import { Injectable, ViewChild } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { TreeViewComponent, ToolbarComponent, AccordionComponent, ContextMenuComponent,
     ClickEventArgs } from '@syncfusion/ej2-angular-navigations';
 import { ListViewComponent } from '@syncfusion/ej2-angular-lists';
@@ -14,6 +14,9 @@ import { MessagePaneComponent } from './content-area/content/message-pane/messag
 
 export class DataService {
 
+    onDiscardClick : EventEmitter<string> = new EventEmitter<string>();
+    onFilterClick : EventEmitter<string> = new EventEmitter<string>();
+    onCloseClick : EventEmitter<string> = new EventEmitter<string>();
     // Class Members
     public treeDataSource: { [key: string]: Object }[] = folderData;
     public treeviewSelectedData: { [key: string]: Object } = null;

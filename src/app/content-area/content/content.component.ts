@@ -12,8 +12,6 @@ export class ContentComponent implements AfterViewInit {
     /** Configurations for the Content page */
     constructor(private data: DataService) {
     }
-    @Output()
-    contentEvent= new EventEmitter();
 
     public hideSideBar(): void {
         this.data.hideSideBar();
@@ -23,7 +21,6 @@ export class ContentComponent implements AfterViewInit {
     public isDesktopMode:boolean = true;
     public ngAfterViewInit(): void {
         this.renderSplitter();
-        this.contentEvent.emit();
     }
     public renderSplitter(): void {
         this.splitterObj.paneSettings = [

@@ -12,7 +12,7 @@ import { DataService } from '../../../../data-service';
 export class NewMailComponent {
 
     /** Configurations for the new mail page */
-    constructor(private data: DataService) {
+    constructor(private data: DataService, private buttonClick: DataService) {
     }
 
     @ViewChild('autoTo')
@@ -34,6 +34,10 @@ export class NewMailComponent {
     public isNewWindow: boolean = true;
     public selectedToolbarItem: string = '';
     public mentionTarget: string = "#mailContentMessage";
+
+    public clickButton() {
+        this.buttonClick.onDiscardClick.emit();
+    }
 
     public toolbarNewMailClick(args: ClickEventArgs): void {
         if (args.item) {

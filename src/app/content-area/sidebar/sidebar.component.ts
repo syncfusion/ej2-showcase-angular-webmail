@@ -18,10 +18,10 @@ export class LeftSidebarComponent implements OnInit {
 
     @ViewChild('sidebar') public sidebar: SidebarComponent;
     public type: string;
-   public showSidebar(): void {
+    public showSidebar(): void {
         this.sidebar.show()
     }
-   public hideSidebar(): void {
+    public hideSidebar(): void {
         this.sidebar.hide()
     }
 }

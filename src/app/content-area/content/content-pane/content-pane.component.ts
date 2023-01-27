@@ -1,9 +1,8 @@
-import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, ViewChild , EventEmitter, Output} from '@angular/core';
 import { NewMailComponent } from './newmail/newmail.component';
 import { TooltipComponent, TooltipEventArgs } from '@syncfusion/ej2-angular-popups';
 import { AccordionComponent } from '@syncfusion/ej2-angular-navigations';
 import { DataService } from '../../../data-service';
-import { SplitterComponent } from '@syncfusion/ej2-angular-layouts';
 
 @Component({
     selector: 'content-pane-section',
@@ -21,7 +20,7 @@ export class ContentPaneComponent implements OnInit {
     @ViewChild('accordian')
     public acrdnObj: AccordionComponent;
 
-    public ngOnInit(): void { 
+    public ngOnInit(): void {
     }
 
     public ngAfterViewInit(): void {

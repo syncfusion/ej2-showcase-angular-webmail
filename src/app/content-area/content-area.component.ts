@@ -8,6 +8,7 @@ import { Popup, Dialog } from '@syncfusion/ej2-popups';
 import { LeftSidebarComponent } from './sidebar/sidebar.component';
 import { PopupComponent } from './popup/popup.component';
 import { ContentComponent } from './content/content.component';
+import { Subscription } from 'rxjs';
 @Component({
     selector: 'content-area-section',
     templateUrl: 'content-area.component.html',
@@ -15,7 +16,7 @@ import { ContentComponent } from './content/content.component';
 
 export class ContentAreaComponent implements AfterContentInit {
 
-    constructor(private data: DataService) {
+    constructor(private data: DataService, private buttonClick: DataService) {
     }
 
     @ViewChild('treeContextMenu')
@@ -105,13 +106,29 @@ export class ContentAreaComponent implements AfterContentInit {
     public nonModalDialog: boolean = false;
     private registerDiscardEvents: boolean = false;
     private lastIndex: number = 31;
+    private discardSubscription: Subscription
+    private filterSubscription: Subscription
+    private closeSubscription: Subscription
 
-    public bindEvent(): void {
-        document.getElementById('btnDiscard').addEventListener('click', this.discardButtonClick.bind(this));
-        document.getElementById('btnFilter').addEventListener('click', this.btnFilterClick.bind(this));
-        document.getElementById('btnCloseButton').addEventListener('click', this.btnCloseClick.bind(this));
+    public ngOnInit(): void {
+        this.discardSubscription = this.buttonClick.onDiscardClick.subscribe((message) => {
+            this.discardButtonClick();
+        })
+        this.filterSubscription = this.buttonClick.onFilterClick.subscribe((message) => {
+            this.btnFilterClick();
+        }) 
+        this.closeSubscription = this.buttonClick.onCloseClick.subscribe((message) => {
+            this.btnCloseClick();
+        })
     }
-    public ngAfterContentInit(): void {   
+
+    public ngOnDestroy(): void {
+        this.discardSubscription.unsubscribe();
+        this.filterSubscription.unsubscribe();
+        this.closeSubscription.unsubscribe();
+    }
+
+    public ngAfterContentInit(): void {
         document.onclick = this.documentClick.bind(this);
         document.ondblclick = this.documentDoubleClick.bind(this);
         let popupContent: HTMLElement = document.getElementById('popupContent');
@@ -419,7 +436,7 @@ export class ContentAreaComponent implements AfterContentInit {
             contentArea.className = 'row content sidebar-hide';
             messagePane.classList.remove("msg-top-margin");
             this.sidebarSection.type = "Over";
-            this.sidebarSection.sidebar.showBackdrop=true;
+            this.sidebarSection.sidebar.showBackdrop = true;
         } else {
             messagePane.classList[ this.data.isNewMailClick ? 'add' : 'remove' ]('msg-top-margin');
             this.hideSideBar();
@@ -435,13 +452,11 @@ export class ContentAreaComponent implements AfterContentInit {
             if (!messagePane.classList.contains('msg-top-margin')) {
                 this.data.showEmptyMessage();
             }
-            this.defaultSplitter.isDesktopMode=false;
-            this.bindEvent();
+            this.defaultSplitter.isDesktopMode = false;
         }
         else {
-            this.defaultSplitter.isDesktopMode=true;
+            this.defaultSplitter.isDesktopMode = true;
             if (document.getElementById('splitBar') && document.getElementById('splitBar').childNodes.length === 0) {
-                this.bindEvent();
                 this.defaultSplitter.renderSplitter();
             }
         }

@@ -1,6 +1,6 @@
 <ejs-sidebar #popup class="headerContent" [enableGestures]="false" position="Right" width="330px" target=".content-wrapper" [type]="type" style="z-index: 112; height: 100%; background-color: #f4f4f4; width: 330px;right:0; position: absolute">
     <div style="right:20px;position: absolute; top: 35px">
-        <button ejs-button id='btnCloseButton' iconCss='ej-icon-Close' cssClass='btn-shadow-hide'>
+        <button (click)="clickButton()" ejs-button id='btnCloseButton' iconCss='ej-icon-Close' cssClass='btn-shadow-hide'>
         </button>
     </div>
     <div style="margin: 25px 20px 30px 30px;">
