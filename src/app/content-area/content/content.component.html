@@ -1,9 +1,16 @@
 <div class='content-wrapper' role='main' (click)="hideSideBar()">
     <div class='content' style='height:100%'>
         <tools-section #toolsSection></tools-section>
-        <div class='maincontent_pane' style='background-color:#fff; width:100%;height:calc(100% - 40px);color:white'>
+        <div *ngIf="isDesktopMode; else mobileMode" class='maincontent_pane' style='background-color:#F4F9FD; width: 100%;height: 100%;color:white'>
+            <ejs-splitter #horizontal id="splitBar" width='100%'></ejs-splitter>
             <message-pane-section #messagePaneSection></message-pane-section>
             <content-pane-section #contentPaneSection></content-pane-section>
         </div>
+        <ng-template #mobileMode>
+        <div class='maincontent_pane' style='background-color:#F4F9FD; width:100%;height: 100%;color:white'>
+            <message-pane-section #messagePaneSection></message-pane-section>
+            <content-pane-section #contentPaneSection></content-pane-section>
+        </div>
+        </ng-template>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, ViewChild , EventEmitter, Output} from '@angular/core';
 import { NewMailComponent } from './newmail/newmail.component';
 import { TooltipComponent, TooltipEventArgs } from '@syncfusion/ej2-angular-popups';
 import { AccordionComponent } from '@syncfusion/ej2-angular-navigations';
@@ -15,7 +15,6 @@ export class ContentPaneComponent implements OnInit {
     /** Configurations for the Content pane page */
     constructor(private _data: DataService) {
     }
-
     @ViewChild('newmailPane')
     public newMailComponent: NewMailComponent;
     @ViewChild('accordian')

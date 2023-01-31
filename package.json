@@ -28,6 +28,7 @@
     "@syncfusion/ej2-angular-buttons": "*",
     "@syncfusion/ej2-angular-dropdowns": "*",
     "@syncfusion/ej2-angular-inputs": "*",
+    "@syncfusion/ej2-angular-layouts": "*",
     "@syncfusion/ej2-angular-lists": "*",
     "@syncfusion/ej2-angular-navigations": "*",
     "@syncfusion/ej2-angular-popups": "*",

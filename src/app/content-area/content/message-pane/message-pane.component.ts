@@ -11,7 +11,7 @@ import { DataService } from '../../../data-service';
 export class MessagePaneComponent implements OnInit {
 
     /** Configurations for the Message pane page */
-    constructor(private _data: DataService) {
+    constructor(private _data: DataService, private buttonClick: DataService) {
         this.messageDataSource = this._data.messageDataSource;
     }
 
@@ -22,6 +22,10 @@ export class MessagePaneComponent implements OnInit {
     public messageDataSource: { [key: string]: Object }[] = null;
     public listTemplate: string = this.getListTemplate();
     public listviewFields: {[key: string]: Object} = { id: 'ContactID', text: 'text' };
+
+    public clickButton() {
+        this.buttonClick.onFilterClick.emit();
+    }
 
     private getListTemplate(): string {
         return '<div class="template-container ${ReadStyle}-parent">' +
@@ -48,7 +52,6 @@ export class MessagePaneComponent implements OnInit {
             '<div class="descriptionstyle">${Message}</div>' +
         '</div>';
     }
-    
 
     public listViewSelect(args: SelectEventArgs): void {
         this._data.selectedListElement = args.item as HTMLElement;

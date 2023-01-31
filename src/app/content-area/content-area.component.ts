@@ -5,7 +5,10 @@ import { DialogComponent } from '@syncfusion/ej2-angular-popups';
 import { ReadingPaneComponent } from './readingpane/readingpane.component';
 import { DataService } from '../data-service';
 import { Popup, Dialog } from '@syncfusion/ej2-popups';
-
+import { LeftSidebarComponent } from './sidebar/sidebar.component';
+import { PopupComponent } from './popup/popup.component';
+import { ContentComponent } from './content/content.component';
+import { Subscription } from 'rxjs';
 @Component({
     selector: 'content-area-section',
     templateUrl: 'content-area.component.html',
@@ -13,7 +16,7 @@ import { Popup, Dialog } from '@syncfusion/ej2-popups';
 
 export class ContentAreaComponent implements AfterContentInit {
 
-    constructor(private data: DataService) {
+    constructor(private data: DataService, private buttonClick: DataService) {
     }
 
     @ViewChild('treeContextMenu')
@@ -37,6 +40,12 @@ export class ContentAreaComponent implements AfterContentInit {
     public dlgDelete: DialogComponent;
     @ViewChild('readingPaneElement')
     public readingPaneComponent: ReadingPaneComponent;
+    @ViewChild('sidebarSection') 
+    public sidebarSection: LeftSidebarComponent;
+    @ViewChild('popupSection')
+    public popupSideBar: PopupComponent;
+    @ViewChild('contentSection') 
+    public defaultSplitter: ContentComponent;
     public popupMail: Popup;
 
     // Tree ContextMenu binding properties
@@ -97,11 +106,29 @@ export class ContentAreaComponent implements AfterContentInit {
     public nonModalDialog: boolean = false;
     private registerDiscardEvents: boolean = false;
     private lastIndex: number = 31;
+    private discardSubscription: Subscription
+    private filterSubscription: Subscription
+    private closeSubscription: Subscription
+
+    public ngOnInit(): void {
+        this.discardSubscription = this.buttonClick.onDiscardClick.subscribe((message) => {
+            this.discardButtonClick();
+        })
+        this.filterSubscription = this.buttonClick.onFilterClick.subscribe((message) => {
+            this.btnFilterClick();
+        }) 
+        this.closeSubscription = this.buttonClick.onCloseClick.subscribe((message) => {
+            this.btnCloseClick();
+        })
+    }
+
+    public ngOnDestroy(): void {
+        this.discardSubscription.unsubscribe();
+        this.filterSubscription.unsubscribe();
+        this.closeSubscription.unsubscribe();
+    }
 
     public ngAfterContentInit(): void {
-        document.getElementById('btnDiscard').addEventListener('click', this.discardButtonClick.bind(this));
-        document.getElementById('btnFilter').addEventListener('click', this.btnFilterClick.bind(this));
-        document.getElementById('btnCloseButton').addEventListener('click', this.btnCloseClick.bind(this));
         document.onclick = this.documentClick.bind(this);
         document.ondblclick = this.documentDoubleClick.bind(this);
         let popupContent: HTMLElement = document.getElementById('popupContent');
@@ -193,10 +220,9 @@ export class ContentAreaComponent implements AfterContentInit {
     }
 
     private btnCloseClick(): void {
-        let contentWrapper: Element = document.getElementsByClassName('row content')[0];
-        contentWrapper.className = contentWrapper.className.replace(' show-header-content', '');
         let headerRP: Element = document.getElementsByClassName('header-right-pane selected')[0];
         headerRP.className = 'header-right-pane';
+        this.popupSideBar.hideSidebar();
     }
 
     private discardButtonClick(): void {
@@ -341,7 +367,6 @@ export class ContentAreaComponent implements AfterContentInit {
             this.data.treeDataSource.push(treeData);
             this.data.treeObj.addNodes([treeData], null, null);
         } else {
-            let ss: HTMLElement = document.getElementsByClassName('sidebar')[0] as HTMLElement;
             this.dlgFavorite.show();
         }
     }
@@ -386,35 +411,53 @@ export class ContentAreaComponent implements AfterContentInit {
     @HostListener('window:resize', ['$event'])
     @HostListener('window:load', ['$event'])
     private onWindowResize(evt: Event): void {
-        let headerNode: Element = document.getElementsByClassName('header navbar')[0];
+        let messagePane: HTMLElement = document.getElementById('message-pane-div');
         let contentArea: Element = document.getElementsByClassName('row content')[0];
         let isReadingPane: boolean = (contentArea.className.indexOf('show-reading-pane') === -1);
         if (!isReadingPane && window.innerWidth < 605) {
             return;
         }
         if (window.innerWidth < 1200) {
-            headerNode.className = 'header navbar head-pane-hide';
             let headerRP: Element = document.getElementsByClassName('header-right-pane selected')[0];
             if (headerRP) {
                 headerRP.className = 'header-right-pane';
             }
             contentArea.className = 'row content';
+            this.popupSideBar.type="Over";
         } else {
-            headerNode.className = 'header navbar';
             if (contentArea.className.indexOf('show-header-content') === -1) {
                 contentArea.className = 'row content';
             } else {
                 contentArea.className = 'row content show-header-content';
             }
+            this.popupSideBar.type="Push";
         }
         if (window.innerWidth < 1090) {
             contentArea.className = 'row content sidebar-hide';
+            messagePane.classList.remove("msg-top-margin");
+            this.sidebarSection.type = "Over";
+            this.sidebarSection.sidebar.showBackdrop = true;
         } else {
+            messagePane.classList[ this.data.isNewMailClick ? 'add' : 'remove' ]('msg-top-margin');
             this.hideSideBar();
+            this.sidebarSection.type = "Push";
+            this.sidebarSection.sidebar.showBackdrop=false;
+            this.sidebarSection.showSidebar();
         }
         if (window.innerWidth < 605) {
             if (isReadingPane) {
                 contentArea.className = contentArea.className + ' ' + 'show-message-pane';
+            }
+            messagePane.classList.remove("msg-top-margin");
+            if (!messagePane.classList.contains('msg-top-margin')) {
+                this.data.showEmptyMessage();
+            }
+            this.defaultSplitter.isDesktopMode = false;
+        }
+        else {
+            this.defaultSplitter.isDesktopMode = true;
+            if (document.getElementById('splitBar') && document.getElementById('splitBar').childNodes.length === 0) {
+                this.defaultSplitter.renderSplitter();
             }
         }
     }
@@ -445,6 +488,7 @@ export class ContentAreaComponent implements AfterContentInit {
             let target: HTMLElement = evt.target as HTMLElement;
             if (target.className.indexOf('header-right-pane') !== -1) {
                 this.headerContent(evt.target as HTMLElement);
+                this.popupSideBar.showSidebar();
             } else if (!this.readingPaneComponent.dropdownSelectRP && this.dlgReplyAllWindow.visible &&
                 target.innerText === this.readingPaneComponent.ddlLastRplyValueRP ) {
                 this.readingPaneComponent.showMailDialogRP(this.readingPaneComponent.ddlLastRplyValueRP);
@@ -550,6 +594,7 @@ export class ContentAreaComponent implements AfterContentInit {
         this.data.dlgSentMailNew = this.dlgSentMailNew;
         this.data.dlgSentMail = this.dlgSentMail;
         this.data.readingPaneComponent = this.readingPaneComponent;
+        this.data.sidebarSection = this.sidebarSection;
         this.popupMail = new Popup(document.getElementById('popupMailId'),{
             position: {X: 'right', Y: 'top'},
             relateTo: '#content-area',
